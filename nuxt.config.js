@@ -82,4 +82,13 @@ export default {
     },
 
     build: {},
+
+    router: {
+        extendRoutes(routes, resolve) {
+          routes.push({
+            path: '/industry/:industry',
+            component: resolve(__dirname, 'pages/industry/_industry.vue')
+          });
+        }
+    }
 }

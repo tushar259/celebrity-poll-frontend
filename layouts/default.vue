@@ -26,7 +26,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <!-- <router-link class="dropdown-item" to="" :class="{ 'active': activeLink === 'hollywood' }" @click="collapse = true,activeLink = 'hollywood'">Hollywood</router-link>
                             <router-link class="dropdown-item" to="" :class="{ 'active': activeLink === 'football' }" @click="collapse = true,activeLink = 'football'">Football</router-link> -->
-                            <a class="dropdown-item capitalized" v-for="(industryName, index) in allIndustry" :key="index" :class="{ 'active': activeLink === industryName.which_industry }" :href="'/polls/'+industryName.which_industry" @click="transferIndustryTo(industryName.which_industry)">{{industryName.which_industry}}</a>
+                            <NuxtLink class="dropdown-item capitalized" v-for="(industryName, index) in allIndustry" :key="index" :class="{ 'active': activeLink === industryName.which_industry }" :to="'/industry/'+industryName.which_industry" @click="transferIndustryTo(industryName.which_industry)">{{industryName.which_industry}}</NuxtLink>
                             <!-- <router-link class="dropdown-item capitalized" v-for="industryName in allIndustry" :key="`/polls/${industryName.which_industry}`" :class="{ 'active': activeLink === industryName.which_industry }" :to="`/polls/${industryName.which_industry}`">{{industryName.which_industry}}</router-link> -->
                             
                             <!-- <div class="dropdown-divider"></div> -->
@@ -183,7 +183,7 @@ export default {
             // if((parts[1] === "" || parts[1] === "polls") && !parts[2]){
             //     this.activeLink = 'home';
             // }
-            if(parts[1] === "polls" && parts[2] && parts[2].length > 0){
+            if(parts[1] === "industry" && parts[2] && parts[2].length > 0){
                 this.activeLink = parts[2];
             }
             else if(parts[1] === "countries"){
@@ -205,7 +205,7 @@ export default {
         transferIndustryTo(industry){
             this.collapse = true;
             this.activeLink = industry;
-            this.$router.push(`/polls/${industry}`);
+            // this.$router.push(`/industry/${industry}`);
             // '/polls/'+industyName
         },
         getListOfIndustries(){
