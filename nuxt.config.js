@@ -15,16 +15,17 @@ export default {
         ],
         link: [
             {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-            {
-                rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap'
-            }
+            // {
+            //     rel: 'stylesheet',
+            //     href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap'
+            // }
         ]
     },
 
     css: [
         '~/assets/custom.css',
-        'bootstrap/dist/css/bootstrap.min.css'
+        'bootstrap/dist/css/bootstrap.min.css',
+        'vue-toastification/dist/index.css',
     ],
 
     plugins: [
@@ -41,6 +42,7 @@ export default {
 
     modules: [
         '@nuxtjs/axios',
+        'vue-toastification/nuxt',
         // '@nuxtjs/auth-next'
     ],
 
@@ -84,11 +86,15 @@ export default {
     build: {},
 
     router: {
-        extendRoutes(routes, resolve) {
-          routes.push({
-            path: '/industry/:industry',
-            component: resolve(__dirname, 'pages/industry/_industry.vue')
-          });
-        }
+        // extendRoutes(routes, resolve) {
+        //   routes.push({
+        //     path: '/industry/:industry',
+        //     component: resolve(__dirname, 'pages/industry/_industry.vue')
+        //   });
+        // }
+    },
+
+    "rules": {
+        "no-console": "off"
     }
 }

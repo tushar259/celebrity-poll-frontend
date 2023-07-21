@@ -42,7 +42,7 @@
                 <hr class="my-1">
                 <ul class="navbar-nav ml-auto" :class="{'d-none': foundLoggedinUser}"> <!-- d-none -->
                     <li class="nav-item">
-                        <router-link class="nav-link" :class="{ 'active': activeLink === 'login' }" to="" @click="loginClicked()">Login</router-link>
+                        <a class="nav-link" :class="{ 'active': activeLink === 'login' }" @click="loginClicked()">Login</a>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :class="{ 'active': activeLink === 'registration' }" to="" @click="registrationClicked()">Registration</router-link>
@@ -58,7 +58,7 @@
                             <!-- <a class="dropdown-item" href="#">Option 2</a>
                             <a class="dropdown-item" href="#">Option 3</a> -->
                             <div class="dropdown-divider"></div>
-                            <router-link  class="dropdown-item" to="" @click="logoutClicked()">Logout</router-link>
+                            <a  class="dropdown-item" @click="logoutClicked()">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -66,7 +66,9 @@
         </nav>
 
         <div class="content">
-            <Nuxt @class-changed="updateSpecificDivClass" />
+            <!-- <Nuxt @class-changed="updateSpecificDivClass = $event" /> -->
+            <!-- <nuxt-child @class-changed="updateSpecificDivClass"></nuxt-child> -->
+            <Nuxt/>
         </div>
         <div>
             <!-- Sticky footer -->
@@ -166,6 +168,7 @@ export default {
         // console.log("window.location.pathname: "+window.location.pathname); // path of the current URL
         // console.log("window.location.hash: "+window.location.hash); // anchor part of the current URL
         // console.log("window.location.search: "+window.location.search); // query string part of the current URL
+        this.$nuxt.$on('class-changed', ($event) => this.updateSpecificDivClass($event))
         this.checkIfUserLoggedin();
         // this.getListOfIndustries();
         this.getCurrentWindowLocation();
@@ -223,12 +226,14 @@ export default {
                 console.log(error); 
             })
         },
+        
         setActiveLink(link) {
             this.collapse = true;
             this.activeLink = link;
         },
+
         updateSpecificDivClass(usersEmailFromComponent){
-            console.log("ifUser: "+usersEmailFromComponent);
+            console.log("ifUser: ",usersEmailFromComponent);
             if(usersEmailFromComponent !== ""){
                 this.userEmail = usersEmailFromComponent;
                 this.foundLoggedinUser = true;
@@ -275,6 +280,7 @@ export default {
         },
 
         logoutClicked(){
+            event.preventDefault();
             if(process.client){
                 this.collapse = true;
                 // localStorage.setItem('logout', 'clicked');
@@ -311,6 +317,7 @@ export default {
         },
 
         loginClicked(){
+            event.preventDefault();
             if(process.client){
                 this.collapse = true;
                 this.activeLink = 'login';
