@@ -33,41 +33,7 @@
             </div>
         </div>
         <div class="px-10-gap"></div>
-        <!-- <div class="custom-details-n-poll-card-area">
-            <div class="custom-details-n-poll-card">
-                <div class="custom-details-n-poll-card-body">
-                    <div v-html="beforePollDescription" class="poll-details"></div>
-                    <div class="card my-3 custom-card poll-details">
-                        <div class="card-body custom-card-body">
-                            <h5 class="card-title">{{ pollTitle }}</h5>
-                            <div class="px-20-gap"></div>
-                            <div  v-for="(poll, index) in pollsVoted" :key="index" class="polls-in-page">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadio1" :value="poll.id">
-                                    
-                                    <div class="total-votes">
-                                        <div class="votes-received-here" :style="{'width': poll.percent + '%'}"></div>
-                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="exampleRadio1">
-                                            {{poll.polls}}
-                                            <div></div>
-                                            ~{{poll.percent}}%({{poll.votes}} votes)
-                                            
-                                        </label>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="px-20-gap"></div>
-                            <div class="custom-align">
-                                <div>Total votes: {{totalVotes}}</div>
-                                <button type="button" class="btn mt-3">Vote</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-html="afterPollDescription" class="poll-details"></div>
-                </div>
-            </div>
-        </div> -->
+        
         <div class="row poll-page-row">
             <div class="col-md-5 custom-column">
                 <div class="poll-page-custom-card winner-animation">
@@ -84,73 +50,13 @@
                 </div>
             </div>
 
-
-
-            
-  
-
-
-
-
             <div class="col-md-7 custom-column" v-if="afterPollDescription !== ''">
                 <div class="poll-page-custom-card">
                     <div v-html="afterPollDescription" class="poll-details"></div>
-                    <!-- <div v-html="afterPollDescription" class="poll-details"></div> -->
                 </div>
             </div>
         </div>
-        <!-- <div class="poll-page-background">
-            <div class="title_n_date">
-                <h1 class="poll-title">{{pollTitle}}</h1>
-                <div class="d-flex align-items-center">
-                    <div class="poll-date">Uploaded {{startingDate}}</div>
-                    <div class="distance-between-two"></div>
-                    <div class="poll-date">Closing {{endingDate}}</div>
-                </div>
-            </div>
-            <div class="px-20-gap"></div>
-            <div v-html="beforePollDescription" class="poll-details"></div>
-            <div class="px-20-gap"></div>
-            
 
-            <div class="card my-3 custom-card">
-                <div class="card-body custom-card-body">
-                <h5 class="card-title">{{ pollTitle }}</h5>
-                <div class="px-20-gap"></div>
-                <div  v-for="(poll, index) in pollsVoted" :key="index" class="polls-in-page">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadio1" :value="poll.id">
-                        
-                        <div class="total-votes">
-                            <div class="votes-received-here" :style="{'width': poll.percent + '%'}"></div>
-                            <label class="form-check-label d-flex justify-content-between align-items-center" for="exampleRadio1">
-                                {{poll.polls}}
-                                <div></div>
-                                ~{{poll.percent}}%({{poll.votes}} votes)
-                                
-                            </label>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="px-20-gap"></div>
-                <div class="custom-align">
-                    <div>Total votes: {{totalVotes}}</div>
-                    <button type="button" class="btn mt-3">Vote</button>
-                </div>
-                </div>
-            </div>
-
-            <div class="px-20-gap"></div>
-            <div v-html="afterPollDescription" class="poll-details"></div>
-            <div class="px-20-gap"></div>
-            
-        </div> -->
-
-        <!-- <div style="width: 300px; background-color: red; position: relative; height: 30px;">
-                <div id="gef" style="width: 10%; background-color: green; position: absolute; top: 0; left: 0; height: 30px;"></div>
-                <div style="position: absolute; top: 0; left: 12%;">abcd</div>
-            </div> -->
     </div>
     
 </template>

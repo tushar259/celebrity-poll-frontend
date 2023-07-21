@@ -2,7 +2,7 @@
     <div v-if="pollFound == false" class="parent-background">
         Page not found
     </div>
-    <!-- <Error v-if="pollFound === false" /> -->
+
     <div v-else-if="pollFound == null" class="loading-spinner-view parent-background">
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -11,32 +11,19 @@
     <div v-else-if="pollFound == true" class="parent-background">
         
         <div class="row poll-page-background">
-            <!-- <div class="card my-3" v-for="(poll, index) in allPolls" :key="index">
-                <div class="card-body">
-                <span class="card-title">{{poll.poll_title}} (Closing at {{poll.ending_date}})</span>
-                    <div v-for="(tag, indexT) in poll.poll_tags" :key="indexT" style="display: inline-block;">
-                        {{tag.polls}} ({{tag.votes}} votes)
-                        <div v-if="indexT !== poll.poll_tags.length - 1" style="display: inline-block;">, </div>
-                    </div>
-                </div>
-            </div> -->
+            
             <div class="styling-link-for-home font-selected">
                 <router-link to="" class="navigator-link">Home</router-link><div class="navigator-link-divider">/</div>
                 <router-link to="" class="navigator-link capitalized">{{industryName}}</router-link>
             </div>
             
             <div class="col-md-6 list-of-anything">
-                <!-- <div class="poll-heads-in-all-poll">
-                    
-                    <span>New polls</span>
-                    
-                </div> -->
+                
                 <h6 class="poll-heads-in-all-poll-new"><span>New polls</span></h6>
                 <div v-if="allRecentPollsFound == true">
                     <div v-for="(poll, index) in allRecentUploadedPolls" :key="index">
-                        <!-- <router-link class="card my-3 custom-card-border" @click="endingPollClicked($event, poll.table_name_starts_with)" :to="'/poll/'+poll.table_name_starts_with">  -->
                         <router-link class="card my-3 custom-card-border" :to="'/poll/'+poll.table_name_starts_with"> 
-                            <!-- <div class="which-industry">{{poll.which_industry}}</div> -->
+                            
                             <div class="card-body d-flex">
                                 <div>
                                     <img :src="'/../'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
@@ -70,17 +57,12 @@
                 </div>
             </div>
             <div class="col-md-6" >
-                <!-- <div class="poll-heads-in-all-poll recent-results-head">
-                    
-                    <span>Recent results</span>
-                    
-                </div> -->
+                
                 <h6 class="poll-heads-in-all-poll-new"><span>Recent results</span></h6>
                 <div v-if="resultPollsFound == true">
                     <div v-for="(poll, index) in resultAllPolls" :key="index">
-                        <!-- <router-link class="card my-3 custom-card-border" @click="resultPollsClicked($event, poll.table_name_starts_with)" :to="'/poll-winner/'+poll.table_name_starts_with"> -->
                         <router-link class="card my-3 custom-card-border" :to="'/poll-winner/'+poll.table_name_starts_with">
-                            <!-- <div class="which-industry">{{poll.which_industry}}</div> -->
+                            
                             <div class="card-body d-flex">
                                 <div>
                                     <img :src="'/../'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
@@ -97,27 +79,22 @@
                         </router-link>
                     </div>
                 </div>
-                <!-- <div class="poll-heads-in-all-poll ending-poll" @click="showEndingPolls = !showEndingPolls"> -->
-                <!-- <div class="poll-heads-in-all-poll ending-poll">
-                    
-                    <span>Polls ending</span>
-                    
-                </div> -->
+
                 <div class="px-10-gap"></div>
                 <h6 class="poll-heads-in-all-poll-new"><span>Polls ending</span></h6>
-                <!-- <div v-if="allPollFound == true" :class="{'d-none': showEndingPolls}"> -->
+
                 <div v-if="allPollFound == true">
                     <div v-for="(poll, index) in allPolls" :key="index">
-                        <!-- <router-link class="card my-3 custom-card-border" @click="endingPollClicked($event, poll.table_name_starts_with)" :to="'/poll/'+poll.table_name_starts_with"> -->
+
                         <router-link class="card my-3 custom-card-border" :to="'/poll/'+poll.table_name_starts_with">
-                            <!-- <div class="which-industry">{{poll.which_industry}}</div> -->
+                            
                             <div class="card-body d-flex">
                                 <div>
                                     <img :src="'/../'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
                                 </div>
                                 <div class="thumbnail-texts-in-list-of-polls">
                                     <h4 class="card-title custom-card-title">
-                                    <strong>{{poll.poll_title}}</strong> <!-- (Closing at <span class="custom-card-ending-date">{{poll.ending_date}}</span>) -->
+                                    <strong>{{poll.poll_title}}</strong>
                                     </h4>
                                     <span class="custom-card-ending-date"><span class="which-industry">{{poll.which_industry}}</span> &bull; Closing {{poll.ending_date}}</span>
                                     <div class="px-20-gap"></div>

@@ -25,11 +25,7 @@
             </div>
         </div>
         <div class="px-10-gap"></div>
-        <!-- <div class="styling-link font-selected">
-            <router-link to="/" class="navigator-link">Home</router-link><i class='fas fa-angle-right'></i>
-            <router-link :to="'/polls/'+whichIndustry" class="navigator-link capitalized">{{whichIndustry}}</router-link><i class='fas fa-angle-right'></i>
-            <router-link :to="'/poll/'+pollId" class="navigator-link">{{pollId}}</router-link>
-        </div> -->
+        
         <div class="row poll-page-row">
             <div class="col-md-6">
                 <div class="styling-link font-selected">
@@ -39,9 +35,7 @@
                 </div>
             </div>
             <div class="col-md-6" style="text-align: right;">
-                <!-- <button type="button" class="btn btn-primary">
-                    <i class="fas fa-share"></i> Share
-                </button> -->
+                
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary share-button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span><i class="fas fa-share-alt"></i> Share</span>
@@ -62,54 +56,10 @@
                         </li>
                     </ul>
                 </div>
-                <!-- <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="facebook" style="margin-right: 0px;" @click="shareOnFacebook">
-                    <img src="/logo/Facebook-logo.png" alt="Facebook Share" style="height: 32px;width: 51px;">
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="twitter" style="margin-right: 8px;" @click="shareOnTwitter">
-                    <img src="/logo/Twitter-logo.svg.png" alt="Twitter Share" style="height: 26px;width: 33px;">
-                </a>
-
-                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="instagram" @click="shareOnInstagram">
-                    <img src="/logo/Instagram_logo_2016.svg.webp" alt="LinkedIn Share" style="height: 27px;width: 27px;">
-                </a> -->
             </div>
         </div>
         <div class="px-10-gap"></div>
-        <!-- <div class="custom-details-n-poll-card-area">
-            <div class="custom-details-n-poll-card">
-                <div class="custom-details-n-poll-card-body">
-                    <div v-html="beforePollDescription" class="poll-details"></div>
-                    <div class="card my-3 custom-card poll-details">
-                        <div class="card-body custom-card-body">
-                            <h5 class="card-title">{{ pollTitle }}</h5>
-                            <div class="px-20-gap"></div>
-                            <div  v-for="(poll, index) in pollsVoted" :key="index" class="polls-in-page">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadio1" :value="poll.id">
-                                    
-                                    <div class="total-votes">
-                                        <div class="votes-received-here" :style="{'width': poll.percent + '%'}"></div>
-                                        <label class="form-check-label d-flex justify-content-between align-items-center" for="exampleRadio1">
-                                            {{poll.polls}}
-                                            <div></div>
-                                            ~{{poll.percent}}%({{poll.votes}} votes)
-                                            
-                                        </label>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="px-20-gap"></div>
-                            <div class="custom-align">
-                                <div>Total votes: {{totalVotes}}</div>
-                                <button type="button" class="btn mt-3">Vote</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-html="afterPollDescription" class="poll-details"></div>
-                </div>
-            </div>
-        </div> -->
+        
         <div class="row poll-page-row">
             <div class="col-md-5 custom-column">
                 <div class="poll-page-custom-card">
@@ -129,19 +79,17 @@
                                     
                                 </label>
 								
-                                <!-- <div style="width: 100%;height: 100%;background-color: rgb(72, 175, 72);" :style="{'width': poll.percent + '%'}" v-if="poll.id == 3"></div> -->
-                                <!-- <span class="bi bi-check"></span> -->
                                 
                             </div>
-                            <span class="lite-color-in-project">{{formatNumber(poll.votes)}} votes</span>
+                            <small class="lite-color-in-project">{{formatNumber(poll.votes)}} votes</small>
                             <div class="px-10-gap"></div>
                             
                         </div>
                     </div>
-                    
+                    <div class="total-votes-count-in-poll-page">Total {{formatNumber(totalVotes)}}</div>
                     <div class="custom-align">
-                        <div>Total votes: {{formatNumber(totalVotes)}}</div>
-                        <!-- <h4 v-html="voteMessage" style="height: 30px;"></h4> -->
+                        
+
                         <button type="button" class="btn mt-3" @click="preCheckBeforeVote()" :disabled="disableVote">Vote</button>
                     </div>
                 </div>
@@ -149,62 +97,11 @@
             <div class="col-md-7 custom-column" v-if="beforePollDescription !== ''">
                 <div class="poll-page-custom-card">
                     <div v-html="beforePollDescription" class="poll-details"></div>
-                    <!-- <div v-html="afterPollDescription" class="poll-details"></div> -->
+                    
                 </div>
             </div>
         </div>
-        <!-- <div class="poll-page-background">
-            <div class="title_n_date">
-                <h1 class="poll-title">{{pollTitle}}</h1>
-                <div class="d-flex align-items-center">
-                    <div class="poll-date">Uploaded {{startingDate}}</div>
-                    <div class="distance-between-two"></div>
-                    <div class="poll-date">Closing {{endingDate}}</div>
-                </div>
-            </div>
-            <div class="px-20-gap"></div>
-            <div v-html="beforePollDescription" class="poll-details"></div>
-            <div class="px-20-gap"></div>
-            
 
-            <div class="card my-3 custom-card">
-                <div class="card-body custom-card-body">
-                <h5 class="card-title">{{ pollTitle }}</h5>
-                <div class="px-20-gap"></div>
-                <div  v-for="(poll, index) in pollsVoted" :key="index" class="polls-in-page">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadio1" :value="poll.id">
-                        
-                        <div class="total-votes">
-                            <div class="votes-received-here" :style="{'width': poll.percent + '%'}"></div>
-                            <label class="form-check-label d-flex justify-content-between align-items-center" for="exampleRadio1">
-                                {{poll.polls}}
-                                <div></div>
-                                ~{{poll.percent}}%({{poll.votes}} votes)
-                                
-                            </label>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="px-20-gap"></div>
-                <div class="custom-align">
-                    <div>Total votes: {{totalVotes}}</div>
-                    <button type="button" class="btn mt-3">Vote</button>
-                </div>
-                </div>
-            </div>
-
-            <div class="px-20-gap"></div>
-            <div v-html="afterPollDescription" class="poll-details"></div>
-            <div class="px-20-gap"></div>
-            
-        </div> -->
-
-        <!-- <div style="width: 300px; background-color: red; position: relative; height: 30px;">
-                <div id="gef" style="width: 10%; background-color: green; position: absolute; top: 0; left: 0; height: 30px;"></div>
-                <div style="position: absolute; top: 0; left: 12%;">abcd</div>
-            </div> -->
     </div>
     
 </template>

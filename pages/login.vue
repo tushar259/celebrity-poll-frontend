@@ -4,7 +4,7 @@
             <div class="col-md-6 log-reg-pas-container">
                 <img class="log-reg-logo-image mx-auto d-block" src="/logo/favicon2.png" alt="logo">
                 <h2 class="text-center font-weight-bold">Login</h2>
-                <div class="text-center lite-color-in-project">Login to continue with us</div>
+                <div class="text-center lite-color-in-project">Login to continue with us.</div>
                 <div class="px-20-gap"></div>
                 <div class="form-group">
                     <label for="email">Email address</label>
@@ -19,7 +19,6 @@
                 <div class="form-group text-right">
                     <router-link to="/change-password" class="forgot-password-link">Forgot password?</router-link>
                 </div>
-                <!-- <div class="px-15-gap"></div> -->
                 <small v-html="submitFormMessage"></small>
                 <button class="btn btn-primary btn-block" @click="loginNow()" :disabled="isLoading">
                     <span v-if="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>

@@ -1,15 +1,8 @@
 <template>
     <div>
         <nav class="navbar navbar-expand-lg navbar-light" style="width: 100% !important">
-            <!-- <a class="navbar-brand" href="#"> -->
             <img class="navbar-brand navbar-logo-custom" src="/logo/favicon2.png" alt="logo" @click="gotoHome()">
-            <!-- <span>
-                
-                    Galaxy of Fandom<br>
-                    Behind the stars
-                
-            </span> -->
-            <!-- </a> -->
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" @click="collapse = false">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,28 +17,22 @@
                             Industry
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!-- <router-link class="dropdown-item" to="" :class="{ 'active': activeLink === 'hollywood' }" @click="collapse = true,activeLink = 'hollywood'">Hollywood</router-link>
-                            <router-link class="dropdown-item" to="" :class="{ 'active': activeLink === 'football' }" @click="collapse = true,activeLink = 'football'">Football</router-link> -->
                             <NuxtLink class="dropdown-item capitalized" v-for="(industryName, index) in allIndustry" :key="index" :class="{ 'active': activeLink === industryName.which_industry }" :to="'/industry/'+industryName.which_industry" @click="transferIndustryTo(industryName.which_industry)">{{industryName.which_industry}}</NuxtLink>
-                            <!-- <router-link class="dropdown-item capitalized" v-for="industryName in allIndustry" :key="`/polls/${industryName.which_industry}`" :class="{ 'active': activeLink === industryName.which_industry }" :to="`/polls/${industryName.which_industry}`">{{industryName.which_industry}}</router-link> -->
                             
-                            <!-- <div class="dropdown-divider"></div> -->
                         </div>
                     </li>
                     <li class="nav-item active">
                         <router-link class="nav-link" to="/countries" :class="{ 'active': activeLink === 'countries' }" @click="collapse = true,activeLink = 'countries'">Countries</router-link>
                     </li>
-                    <!-- <li class="nav-item">
-                        <router-link class="nav-link disabled" to="#">Disabled</router-link>
-                    </li> -->
+                    
                 </ul>
                 <hr class="my-1">
                 <ul class="navbar-nav ml-auto" :class="{'d-none': foundLoggedinUser}"> <!-- d-none -->
                     <li class="nav-item">
-                        <a class="nav-link" :class="{ 'active': activeLink === 'login' }" @click="loginClicked()">Login</a>
+                        <a class="nav-link" :class="{ 'active': activeLink === 'login' }" href="" @click="loginClicked()">Login</a>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :class="{ 'active': activeLink === 'registration' }" to="" @click="registrationClicked()">Registration</router-link>
+                        <a class="nav-link" :class="{ 'active': activeLink === 'registration' }" href="" @click="registrationClicked()">Registration</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto" :class="{'d-none': !foundLoggedinUser}">
@@ -55,10 +42,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <router-link class="dropdown-item" to="/change-password" :class="{ 'active': activeLink === 'changePassword' }" @click="collapse = true,activeLink = 'changePassword'">Change password</router-link>
-                            <!-- <a class="dropdown-item" href="#">Option 2</a>
-                            <a class="dropdown-item" href="#">Option 3</a> -->
+                            
                             <div class="dropdown-divider"></div>
-                            <a  class="dropdown-item" @click="logoutClicked()">Logout</a>
+                            <a href="" class="dropdown-item" @click="logoutClicked()">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -66,8 +52,6 @@
         </nav>
 
         <div class="content">
-            <!-- <Nuxt @class-changed="updateSpecificDivClass = $event" /> -->
-            <!-- <nuxt-child @class-changed="updateSpecificDivClass"></nuxt-child> -->
             <Nuxt/>
         </div>
         <div>
@@ -331,6 +315,7 @@ export default {
         },
 
         registrationClicked(){
+            event.preventDefault();
             if(process.client){
                 this.collapse = true;
                 this.activeLink = 'registration';
