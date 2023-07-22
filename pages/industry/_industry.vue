@@ -127,6 +127,19 @@
     import moment from 'moment';
     import FormData from 'form-data';
     export default {
+
+        head:{
+            meta:[
+                
+                { charset: 'UTF-8' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+                { name: 'robots', content: 'index, follow' },
+                
+
+                {name: 'description', content: "polls, poll, lionel messi, messi, ronaldo, cristiano ronalo, neymar, neymar jr, ronaldinho, shah rukh khan, srk, salman khan, salman, bts, taehyung, v, jungkook, jinn, black pink, momoland, nancy jewel mcdonie, katrina kaif, katrina, deepika padukone, deepika, alia bhatt, alia, ileana d'cruz, aishwarya rai, akshay kumar, hrithik roshan, ranveer singh, ranbir kapoor, kareena kapoor, virat kohli, rohit sharma, ms dhoni" },
+                
+            ]
+        },
         
         data: () => ({
             apiUrl: null,
@@ -140,6 +153,7 @@
             userEmail: '',
             allRecentUploadedPolls: [],
             allRecentPollsFound: null,
+            pageDescriptionForMeta: ''
 
         }),
 
@@ -170,6 +184,7 @@
                 allRecentPollsFound = true;
                 recentPolls.data.all_polls.forEach(item => {
                     item.ending_date = moment(item.ending_date).format('D MMM YYYY');
+                    this.pageDescriptionForMeta += item.poll_title +'. ';
                     this.allRecentUploadedPolls.push(item);
                 });
                 
@@ -184,6 +199,7 @@
                 allPollFound = true;
                 endingPolls.data.all_polls.forEach(item => {
                     item.ending_date = moment(item.ending_date).format('D MMM YYYY');
+                    this.pageDescriptionForMeta += item.poll_title +'. ';
                     this.allPolls.push(item);
                 });
                 
@@ -198,6 +214,7 @@
                 resultPollsFound = true;
                 pollResults.data.all_poll_result.forEach(item => {
                     item.updated_at = this.beautifyTime(item.updated_at);
+                    this.pageDescriptionForMeta += item.poll_title +'. ';
                     this.resultAllPolls.push(item);
                 });
             }
@@ -213,6 +230,32 @@
             this.allRecentPollsFound = allRecentPollsFound;
             this.allPollFound = allPollFound;
             this.resultPollsFound = resultPollsFound;
+
+            
+            this.$nuxt.$options.head = {
+                title: 'Fans - '+this.industryName,
+                meta: [
+                    
+                    {name: 'description', content: this.pageDescriptionForMeta},
+
+                    { hid: 'og:title', property: 'og:title', content: 'Fans - '+this.industryName },
+                    { hid: 'og:description', property: 'og:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
+                    { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/logo/favicon2.png' },
+                    { hid: 'og:url', property: 'og:url', content: this.apiUrl },
+                    { hid: 'og:type', property: 'og:type', content: 'website' },
+
+                    { name: 'twitter:title', content: 'Fans - '+this.industryName },
+                    { name: 'twitter:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
+                    { name: 'twitter:image', content: this.apiUrl+'/logo/favicon2.png' },
+                    { name: 'twitter:card', content: 'summary_large_image' },
+                    // { name: 'poll-id', content: '123456' }, // Replace with the actual poll ID
+                    // { name: 'poll-title', content: 'My Awesome Poll' },
+                ],
+            };
+            
+            if (process.client){
+                document.title = 'Fans - '+this.industryName;
+            }
 
         },
 

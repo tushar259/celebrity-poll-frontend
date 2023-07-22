@@ -72,7 +72,7 @@
                             
                             <div class="total-votes">
                                 <div class="votes-received-here" :style="{'width': poll.percent + '%'}"></div>
-                                <label class="form-check-label font-weight-in-poll d-flex justify-content-between align-items-center" :for="`exampleRadios${index}`">
+                                <label class="form-check-label font-weight-in-poll d-flex justify-content-between align-items-center capitalized" :for="`exampleRadios${index}`">
                                     {{poll.polls}}
                                     <div></div>
                                     <span class="poll-votes-color">{{poll.percent}}%</span>
@@ -111,6 +111,20 @@
     // import { useToast } from 'vue-toastification';
     // const toast = useToast();
     export default {
+
+        head:{
+            meta:[
+                
+                { charset: 'UTF-8' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+                { name: 'robots', content: 'index, follow' },
+                
+
+                // {name: 'description', content: "polls, poll, lionel messi, messi, ronaldo, cristiano ronalo, neymar, neymar jr, ronaldinho, shah rukh khan, srk, salman khan, salman, bts, taehyung, v, jungkook, jinn, black pink, momoland, nancy jewel mcdonie, katrina kaif, katrina, deepika padukone, deepika, alia bhatt, alia, ileana d'cruz, aishwarya rai, akshay kumar, hrithik roshan, ranveer singh, ranbir kapoor, kareena kapoor, virat kohli, rohit sharma, ms dhoni" },
+                
+            ]
+        },
+
         data: () => ({
             apiUrl: null,
             pollId: null,
@@ -131,7 +145,7 @@
             token: process.client ? localStorage.getItem('token') : '',
             userEmail: '',
             voteMessage: '',
-
+            pageDescriptionForMeta: ''
         }),
 
         async fetch() {
@@ -163,6 +177,7 @@
                         item.percent = 0;
                     }
                     this.pollsVoted.push(item);
+                    this.pageDescriptionForMeta += item.polls +':('+item.percent+'%), ';
                 });
 
                 this.totalVotes = parseInt(response.data.total_votes);
@@ -175,9 +190,41 @@
             else{
                 this.pollFound = false;
             }
+
+            this.$nuxt.$options.head = {
+                title: 'Fans - '+this.pollTitle,
+                meta: [
+                    
+                    {name: 'description', content: this.pageDescriptionForMeta},
+
+                    {name: 'description', content: this.beforePollDescription },
+
+                    { hid: 'og:title', property: 'og:title', content: 'Fans - '+this.pollTitle },
+                    { hid: 'og:description', property: 'og:description', content: this.pageDescriptionForMeta },
+                    { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/'+this.thumbnail },
+                    { hid: 'og:url', property: 'og:url', content: this.apiUrl },
+                    { hid: 'og:type', property: 'og:type', content: 'website' },
+
+                    { name: 'twitter:title', content: 'Fans - '+this.pollTitle },
+                    { name: 'twitter:description', content: this.pageDescriptionForMeta },
+                    { name: 'twitter:image', content: this.apiUrl+'/'+this.thumbnail },
+                    { name: 'twitter:card', content: 'summary_large_image' },
+
+                    { name: 'poll-id', content: this.pollId }, // Replace with the actual poll ID
+                    { name: 'poll-title', content: this.pollTitle },
+                ],
+            };
+
+            if (process.client){
+                document.title = 'Fans - '+this.pollTitle;
+                window.scrollTo(0, 500);
+            }
         },
 
         created() {
+            // if(process.client){
+            //     document.title = 'Fans - '+this.pollTitle;
+            // }
             // const protocol = window.location.protocol; // e.g., "http:" or "https:"
             // const hostname = window.location.hostname; // e.g., "www.example.com"
             // const port = window.location.port; // e.g., "8080" (if exists)
@@ -191,12 +238,10 @@
             // }
         },
 
-        mounted(){
-            const metaTag = document.getElementById('abcd234');
-            if (metaTag) {
-                metaTag.setAttribute('name', 'description');
-                metaTag.setAttribute('content', 'Your meta description');
-            }
+        beforeMount(){
+            // if(process.client){
+            //     window.scrollTo(0, 0);
+            // }
         },
 
         methods: {

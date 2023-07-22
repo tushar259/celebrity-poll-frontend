@@ -203,26 +203,26 @@
                 this.resultPollsFound = false;
             }
 
-            if(this.pageDescriptionForMeta !== ''){
-                this.$nuxt.$options.head = {
-                    meta: [
-                        {name: 'description', content: this.pageDescriptionForMeta},
+            
+            this.$nuxt.$options.head = {
+                meta: [
+                    {name: 'description', content: this.pageDescriptionForMeta},
 
-                        { hid: 'og:title', property: 'og:title', content: 'Fans - Behind The Stars' },
-                        { hid: 'og:description', property: 'og:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
-                        { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/logo/favicon2.png' },
-                        { hid: 'og:url', property: 'og:url', content: this.apiUrl },
-                        { hid: 'og:type', property: 'og:type', content: 'website' },
+                    { hid: 'og:title', property: 'og:title', content: 'Fans - Behind The Stars' },
+                    { hid: 'og:description', property: 'og:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
+                    { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/logo/favicon2.png' },
+                    { hid: 'og:url', property: 'og:url', content: this.apiUrl },
+                    { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                        { name: 'twitter:title', content: 'Fans - Behind The Stars' },
-                        { name: 'twitter:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
-                        { name: 'twitter:image', content: this.apiUrl+'/logo/favicon2.png' },
-                        { name: 'twitter:card', content: 'summary_large_image' },
-                        // { name: 'poll-id', content: '123456' }, // Replace with the actual poll ID
-                        // { name: 'poll-title', content: 'My Awesome Poll' },
-                    ],
-                };
-            }
+                    { name: 'twitter:title', content: 'Fans - Behind The Stars' },
+                    { name: 'twitter:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
+                    { name: 'twitter:image', content: this.apiUrl+'/logo/favicon2.png' },
+                    { name: 'twitter:card', content: 'summary_large_image' },
+                    // { name: 'poll-id', content: '123456' }, // Replace with the actual poll ID
+                    // { name: 'poll-title', content: 'My Awesome Poll' },
+                ],
+            };
+            
             
         },
 
