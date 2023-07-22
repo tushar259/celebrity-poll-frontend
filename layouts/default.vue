@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav class="navbar navbar-expand-lg navbar-light" style="width: 100% !important">
-            <img class="navbar-brand navbar-logo-custom" src="/logo/favicon2.png" alt="logo" @click="gotoHome()">
+            <img class="navbar-brand navbar-logo-custom" :src="apiUrl+'/logo/favicon2.png'" alt="logo" @click="gotoHome()">
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" @click="collapse = false">
                 <span class="navbar-toggler-icon"></span>
@@ -82,7 +82,7 @@
                                 All content, including text, images, and logos displayed on [Your Website Name], is protected by copyright laws.
                             </p>
                             <p>
-                                <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-and-conditions">Terms and Conditions</a> | <!-- <a href="/copyright">Copyright Notice</a> |--> <a href="/about-us">About us</a> | <a href="/report-a-problem">Report a Problem</a>
+                                <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-and-conditions">Terms and Conditions</a> | <!-- <a href="/copyright">Copyright Notice</a> |--> <a href="/about-us">About us</a> | <a href="/report-problem">Report a Problem</a>
                             </p>
                             <p>&copy; [Year] [Your Website Name]. All rights reserved. | Designed and developed by [Your Name].
 
@@ -99,15 +99,12 @@
 // import axios from 'axios';
 export default {
     head: {
-        title: 'Home', // Set your page title here
-        meta: [
-            {name: 'description', content: 'This is the home page',},
-        ],
         link: [
             {rel: 'preconnect', href: 'https://fonts.bunny.net' },
             {rel: 'stylesheet', href: 'https://fonts.bunny.net/css?family=figtree:400,600&display=swap',},
             {rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',},
             {rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',},
+            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
         script: [
             {src:'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',},
@@ -118,6 +115,7 @@ export default {
     },
 
     data: () => ({
+        apiUrl: null,
         collapse: false,
         foundLoggedinUser: false,
         userEmail: '',
@@ -129,7 +127,7 @@ export default {
     }),
 
     async fetch() {
-        
+        this.apiUrl = this.$axios.defaults.baseURL;
         const response = await this.$axios.$get('/api/get-list-of-industries')
         // console.log(response);
         if(response.success === true){

@@ -11,7 +11,7 @@
         <div v-if="thumbnail != ''" class="custom-thumbnail">
             <div class="image-card">
                 <div class="image-card-body">
-                    <img :src="'/../'+thumbnail">
+                    <img :src="apiUrl+'/'+thumbnail">
                     <br>
                     <p class="texts-under-thumbnail">image courtesy</p>
                     <h1 class="poll-title texts-under-thumbnail">{{pollTitle}}?</h1>
@@ -43,15 +43,15 @@
                     <ul class="dropdown-menu share-dropdown-button">
                         <li>
                             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="facebook" style="margin-right: 0px;" @click="shareOnFacebook">
-                                <img src="/logo/Facebook-logo.png" alt="Facebook Share" style="height: 32px;width: 51px;">
+                                <img :src="apiUrl+'/logo/Facebook-logo.png'" alt="Facebook Share" style="height: 32px;width: 51px;">
                             </a>
                         
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="twitter" style="margin-right: 8px;" @click="shareOnTwitter">
-                                <img src="/logo/Twitter-logo.svg.png" alt="Twitter Share" style="height: 26px;width: 33px;">
+                                <img :src="apiUrl+'/logo/Twitter-logo.svg.png'" alt="Twitter Share" style="height: 26px;width: 33px;">
                             </a>
                         
                             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="instagram" @click="shareOnInstagram">
-                                <img src="/logo/Instagram_logo_2016.svg.webp" alt="LinkedIn Share" style="height: 27px;width: 27px;">
+                                <img :src="apiUrl+'/logo/Instagram_logo_2016.svg.webp'" alt="LinkedIn Share" style="height: 27px;width: 27px;">
                             </a>
                         </li>
                     </ul>
@@ -112,6 +112,7 @@
     // const toast = useToast();
     export default {
         data: () => ({
+            apiUrl: null,
             pollId: null,
             pollFound: null,
             pollTitle: '',
@@ -134,6 +135,7 @@
         }),
 
         async fetch() {
+            this.apiUrl = this.$axios.defaults.baseURL;
             this.pollId = this.$route.params.pollid;
             this.pollId = this.pollId.replace(":", "");
             const formData = {

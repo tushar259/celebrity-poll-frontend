@@ -23,7 +23,7 @@
                         <router-link class="card my-3 custom-card-border" :to="'/poll/'+poll.table_name_starts_with"> 
                             <div class="card-body d-flex">
                                 <div>
-                                    <img :src="'/../'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
+                                    <img :src="apiUrl+'/'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
                                 </div>
                                 
                                 <div class="thumbnail-texts-in-list-of-polls">
@@ -62,7 +62,7 @@
                             
                             <div class="card-body d-flex">
                                 <div>
-                                    <img :src="'/../'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
+                                    <img :src="apiUrl+'/'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
                                 </div>
                                 <div class="thumbnail-texts-in-list-of-polls">
                                     <h4 class="card-title custom-card-title">
@@ -84,7 +84,7 @@
                             
                             <div class="card-body d-flex">
                                 <div>
-                                    <img :src="'/../'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
+                                    <img :src="apiUrl+'/'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
                                 </div>
                                 <div class="thumbnail-texts-in-list-of-polls">
                                     <h4 class="card-title custom-card-title">
@@ -121,7 +121,22 @@
     import moment from 'moment';
     export default {
 
+        head:{
+            title: 'Fans - Behind The Stars',
+            meta:[
+                
+                { charset: 'UTF-8' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+                { name: 'robots', content: 'index, follow' },
+                
+
+                {name: 'description', content: "polls, poll, lionel messi, messi, ronaldo, cristiano ronalo, neymar, neymar jr, ronaldinho, shah rukh khan, srk, salman khan, salman, bts, taehyung, v, jungkook, jinn, black pink, momoland, nancy jewel mcdonie, katrina kaif, katrina, deepika padukone, deepika, alia bhatt, alia, ileana d'cruz, aishwarya rai, akshay kumar, hrithik roshan, ranveer singh, ranbir kapoor, kareena kapoor, virat kohli, rohit sharma, ms dhoni" },
+                
+            ]
+        },
+        
         data: () => ({
+            apiUrl: null,
             allPolls: [],
             pollFound: null,
             allPollFound: null,
@@ -134,9 +149,12 @@
             // showRecentPolls: false,
             // showResultPolls: false,
             // showEndingPolls: false,
+            pageDescriptionForMeta: ''
+            
         }),
 
         async fetch() {
+            this.apiUrl = this.$axios.defaults.baseURL;
             const recentPolls = await this.$axios.$get('/api/get-all-recent-uploaded-poll');
             const pollsEnding = await this.$axios.$get('/api/get-all-poll');
             const pollResults = await this.$axios.$get('/api/get-result-list-poll');
@@ -147,6 +165,7 @@
                 // this.allRecentUploadedPolls = recentPolls.all_polls;
                 recentPolls.all_polls.forEach(item => {
                     item.ending_date = moment(item.ending_date).format('D MMM YYYY');
+                    this.pageDescriptionForMeta += item.poll_title +'. ';
                     this.allRecentUploadedPolls.push(item);
                 });
             }
@@ -161,6 +180,7 @@
                 // this.allPolls = pollsEnding.all_polls;
                 pollsEnding.all_polls.forEach(item => {
                     item.ending_date = moment(item.ending_date).format('D MMM YYYY');
+                    this.pageDescriptionForMeta += item.poll_title +'. ';
                     this.allPolls.push(item);
                 });
             }
@@ -175,11 +195,33 @@
                 // this.resultAllPolls = pollResults.all_poll_result;
                 pollResults.all_poll_result.forEach(item => {
                     item.updated_at = this.beautifyTime(item.updated_at);
+                    this.pageDescriptionForMeta += item.poll_title +'. ';
                     this.resultAllPolls.push(item);
                 });
             }
             else{
                 this.resultPollsFound = false;
+            }
+
+            if(this.pageDescriptionForMeta !== ''){
+                this.$nuxt.$options.head = {
+                    meta: [
+                        {name: 'description', content: this.pageDescriptionForMeta},
+
+                        { hid: 'og:title', property: 'og:title', content: 'Fans - Behind The Stars' },
+                        { hid: 'og:description', property: 'og:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
+                        { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/logo/favicon2.png' },
+                        { hid: 'og:url', property: 'og:url', content: this.apiUrl },
+                        { hid: 'og:type', property: 'og:type', content: 'website' },
+
+                        { name: 'twitter:title', content: 'Fans - Behind The Stars' },
+                        { name: 'twitter:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
+                        { name: 'twitter:image', content: this.apiUrl+'/logo/favicon2.png' },
+                        { name: 'twitter:card', content: 'summary_large_image' },
+                        // { name: 'poll-id', content: '123456' }, // Replace with the actual poll ID
+                        // { name: 'poll-title', content: 'My Awesome Poll' },
+                    ],
+                };
             }
             
         },

@@ -11,7 +11,7 @@
         <div v-if="thumbnail != ''" class="custom-thumbnail">
             <div class="image-card">
                 <div class="image-card-body">
-                    <img :src="'/../'+thumbnail">
+                    <img :src="apiUrl+'/'+thumbnail">
                     <br>
                     <p class="texts-under-thumbnail">image courtesy</p>
                     <h1 class="poll-title texts-under-thumbnail">{{pollTitle}}?</h1>
@@ -41,7 +41,7 @@
                     <div class="px-30-gap"></div>
                     <div class="custom-align">
                         <h5 class="flashing text-color-in-winner">W I N N E R</h5>
-                        <img :src="'/../'+winnersThumbnail" class="winners-picture">
+                        <img :src="apiUrl+'/'+winnersThumbnail" class="winners-picture">
                         <br>
                         <h5 class="text-color-in-winner">{{winnersName}}</h5>
                     </div>
@@ -65,6 +65,7 @@
     import moment from 'moment';
     export default {
         data: () => ({
+            apiUrl: null,
             pollId: null,
             pollFound: null,
             pollTitle: '',
@@ -84,6 +85,7 @@
         }),
 
         async fetch() {
+            this.apiUrl = this.$axios.defaults.baseURL;
             this.pollId = this.$route.params.pollid;
             this.pollId = this.pollId.replace(":", "");
             const formData = {
@@ -180,6 +182,10 @@
     }
 </script>
 
-<style scoped>
-
+<style>
+/* 
+.winner-animation{
+    --api-url: {{ apiUrl }};
+    background-image: url('var(--api-url)/winner/winnerCelebration.gif');
+} */
 </style>

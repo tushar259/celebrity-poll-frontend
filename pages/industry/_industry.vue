@@ -26,7 +26,7 @@
                             
                             <div class="card-body d-flex">
                                 <div>
-                                    <img :src="'/../'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
+                                    <img :src="apiUrl+'/'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
                                 </div>
                                 
                                 <div class="thumbnail-texts-in-list-of-polls">
@@ -65,7 +65,7 @@
                             
                             <div class="card-body d-flex">
                                 <div>
-                                    <img :src="'/../'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
+                                    <img :src="apiUrl+'/'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
                                 </div>
                                 <div class="thumbnail-texts-in-list-of-polls">
                                     <h4 class="card-title custom-card-title">
@@ -90,7 +90,7 @@
                             
                             <div class="card-body d-flex">
                                 <div>
-                                    <img :src="'/../'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
+                                    <img :src="apiUrl+'/'+poll.thumbnail_image" class="thumbnail-images-in-list-of-polls">
                                 </div>
                                 <div class="thumbnail-texts-in-list-of-polls">
                                     <h4 class="card-title custom-card-title">
@@ -129,6 +129,7 @@
     export default {
         
         data: () => ({
+            apiUrl: null,
             industryName: null,
             allPolls: [],
             pollFound: null,
@@ -143,7 +144,7 @@
         }),
 
         async fetch() {
-            
+            this.apiUrl = this.$axios.defaults.baseURL;
             this.industryName = this.$route.params.industry;
 
             this.allRecentUploadedPolls = [];
