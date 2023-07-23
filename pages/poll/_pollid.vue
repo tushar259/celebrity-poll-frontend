@@ -192,20 +192,20 @@
             }
 
             this.$nuxt.$options.head = {
-                title: 'Fans - '+this.pollTitle,
+                title: 'Poll - '+this.pollTitle,
                 meta: [
                     
                     {name: 'description', content: this.pageDescriptionForMeta},
 
                     {name: 'description', content: this.beforePollDescription },
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - '+this.pollTitle },
+                    { hid: 'og:title', property: 'og:title', content: 'Poll - '+this.pollTitle },
                     { hid: 'og:description', property: 'og:description', content: this.pageDescriptionForMeta },
                     { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/'+this.thumbnail },
-                    { hid: 'og:url', property: 'og:url', content: this.apiUrl },
+                    { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/poll/'+this.pollId },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - '+this.pollTitle },
+                    { name: 'twitter:title', content: 'Poll - '+this.pollTitle },
                     { name: 'twitter:description', content: this.pageDescriptionForMeta },
                     { name: 'twitter:image', content: this.apiUrl+'/'+this.thumbnail },
                     { name: 'twitter:card', content: 'summary_large_image' },
@@ -216,7 +216,7 @@
             };
 
             if (process.client){
-                document.title = 'Fans - '+this.pollTitle;
+                document.title = 'Poll - '+this.pollTitle;
                 window.scrollTo(0, 500);
             }
         },

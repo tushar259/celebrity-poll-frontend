@@ -211,7 +211,7 @@
                     { hid: 'og:title', property: 'og:title', content: 'Fans - Behind The Stars' },
                     { hid: 'og:description', property: 'og:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
                     { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/logo/favicon2.png' },
-                    { hid: 'og:url', property: 'og:url', content: this.apiUrl },
+                    { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/polls' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
                     { name: 'twitter:title', content: 'Fans - Behind The Stars' },

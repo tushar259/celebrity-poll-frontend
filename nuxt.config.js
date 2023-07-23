@@ -1,6 +1,5 @@
 export default {
     head: {
-        title: 'ergodnc',
         htmlAttrs: {
             lang: 'en'
         },

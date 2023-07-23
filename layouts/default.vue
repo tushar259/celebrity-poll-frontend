@@ -9,7 +9,7 @@
             <div class="navbar-collapse collapse" :class="{'hide-navbar-now': collapse}" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <router-link class="nav-link" to="/" :class="{ 'active': activeLink === 'home' }" @click="collapse = true,activeLink = 'home'">Home</router-link>
+                        <NuxtLink class="nav-link" to="/" :class="{ 'active': activeLink === 'home' }" @click="collapse = true,activeLink = 'home'">Home</NuxtLink>
                     </li>
                     
                     <li class="nav-item dropdown">
@@ -22,7 +22,7 @@
                         </div>
                     </li>
                     <li class="nav-item active">
-                        <router-link class="nav-link" to="/countries" :class="{ 'active': activeLink === 'countries' }" @click="collapse = true,activeLink = 'countries'">Countries</router-link>
+                        <NuxtLink class="nav-link" to="/countries" :class="{ 'active': activeLink === 'countries' }" @click="collapse = true,activeLink = 'countries'">Countries</NuxtLink>
                     </li>
                     
                 </ul>
@@ -165,9 +165,9 @@ export default {
         
         getCurrentWindowLocation(){
             const parts = this.currentLocation.split('/');
-            // if((parts[1] === "" || parts[1] === "polls") && !parts[2]){
-            //     this.activeLink = 'home';
-            // }
+            if((parts[1] === "" || parts[1] === "polls") && !parts[2]){
+                this.activeLink = 'home';
+            }
             if(parts[1] === "industry" && parts[2] && parts[2].length > 0){
                 this.activeLink = parts[2];
             }
@@ -183,9 +183,11 @@ export default {
             else if(parts[1] === "create-account"){
                 this.activeLink = 'registration';
             }
-            else{
-                this.activeLink = 'home';
-            }
+
+            console.log("this.activeLink: "+this.activeLink);
+            // else{
+            //     this.activeLink = 'home';
+            // }
         },
         transferIndustryTo(industry){
             this.collapse = true;
