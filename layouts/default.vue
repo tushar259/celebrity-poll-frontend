@@ -9,7 +9,7 @@
             <div class="navbar-collapse collapse" :class="{'hide-navbar-now': collapse}" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <NuxtLink class="nav-link" to="/" :class="{ 'active': activeLink === 'home' }" @click="collapse = true,activeLink = 'home'">Home</NuxtLink>
+                        <a class="nav-link custom-cursor" href="/" :class="{ 'active': activeLink === 'home' }" @click="gotoHome()">Home</a>
                     </li>
                     
                     <li class="nav-item dropdown">
@@ -17,24 +17,24 @@
                             Industry
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <NuxtLink class="dropdown-item capitalized" v-for="(industryName, index) in allIndustry" :key="index" :class="{ 'active': activeLink === industryName.which_industry }" :to="'/industry/'+industryName.which_industry" @click="transferIndustryTo(industryName.which_industry)">{{industryName.which_industry}}</NuxtLink>
+                            <a class="dropdown-item capitalized custom-cursor" v-for="(industryName, index) in allIndustry" :key="index" :class="{ 'active': activeLink === industryName.which_industry }" :href="'/industry/'+industryName.which_industry" @click="transferIndustryTo(industryName.which_industry)">{{industryName.which_industry}}</a>
                             
                         </div>
                     </li>
                     <li class="nav-item active">
-                        <NuxtLink class="nav-link" to="/poll-history" :class="{ 'active': activeLink === 'pollHistory' }" @click="collapse = true,activeLink = 'pollHistory'">Poll History</NuxtLink>
+                        <a class="nav-link custom-cursor" href="/poll-history" :class="{ 'active': activeLink === 'pollHistory' }" @click="gotoPollHistory()">Poll History</a>
                     </li>
                     <li class="nav-item active">
-                        <NuxtLink class="nav-link" to="/countries" :class="{ 'active': activeLink === 'countries' }" @click="collapse = true,activeLink = 'countries'">Countries</NuxtLink>
+                        <a class="nav-link custom-cursor" href="/countries" :class="{ 'active': activeLink === 'countries' }" @click="gotoCountries()">Countries</a>
                     </li>
                 </ul>
                 <hr class="my-1">
                 <ul class="navbar-nav ml-auto" :class="{'d-none': foundLoggedinUser}"> <!-- d-none -->
                     <li class="nav-item">
-                        <a class="nav-link" :class="{ 'active': activeLink === 'login' }" href="" @click="loginClicked()">Login</a>
+                        <a class="nav-link custom-cursor" :class="{ 'active': activeLink === 'login' }" href="" @click="loginClicked()">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" :class="{ 'active': activeLink === 'registration' }" href="" @click="registrationClicked()">Registration</a>
+                        <a class="nav-link custom-cursor" :class="{ 'active': activeLink === 'registration' }" href="" @click="registrationClicked()">Registration</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto" :class="{'d-none': !foundLoggedinUser}">
@@ -43,10 +43,10 @@
                             {{userEmail}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <router-link class="dropdown-item" to="/change-password" :class="{ 'active': activeLink === 'changePassword' }" @click="collapse = true,activeLink = 'changePassword'">Change password</router-link>
+                            <a class="dropdown-item custom-cursor" href="/change-password" :class="{ 'active': activeLink === 'changePassword' }" @click="gotoChangePassword()">Change password</a>
                             
                             <div class="dropdown-divider"></div>
-                            <a href="" class="dropdown-item" @click="logoutClicked()">Logout</a>
+                            <a href="" class="dropdown-item custom-cursor" @click="logoutClicked()">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -109,10 +109,11 @@ export default {
             {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
         script: [
-            {src:'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',},
+            {src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',},
             {src: 'https://code.jquery.com/jquery-3.2.1.slim.min.js' },
             {src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',},
             {src: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' },
+            {src: 'https://kit.fontawesome.com/a076d05399.js', crossorigin: 'anonymous' },
         ],
     },
 
@@ -155,14 +156,20 @@ export default {
         this.$nuxt.$on('class-changed', ($event) => this.updateSpecificDivClass($event))
         this.checkIfUserLoggedin();
         // this.getListOfIndustries();
+        
+    },
+
+    mounted(){
         this.getCurrentWindowLocation();
     },
 
     methods:{
         gotoHome(){
+            event.preventDefault();
             this.collapse = true;
             this.activeLink = 'home';
             this.$router.push('/');
+            console.log("this.activeLink: "+this.activeLink);
         },
         
         getCurrentWindowLocation(){
@@ -185,16 +192,41 @@ export default {
             else if(parts[1] === "create-account"){
                 this.activeLink = 'registration';
             }
+            else if(parts[1] === "poll-history"){
+                this.activeLink = 'pollHistory';
+            }
 
             console.log("this.activeLink: "+this.activeLink);
             // else{
             //     this.activeLink = 'home';
             // }
         },
+
+        gotoCountries(){
+            event.preventDefault();
+            this.collapse = true
+            this.activeLink = 'countries';
+            this.$router.push('/countries');
+        },
+
+        gotoChangePassword(){
+            event.preventDefault();
+            this.collapse = true;
+            this.activeLink = 'changePassword';
+            this.$router.push('/change-password');
+        },
+
+        gotoPollHistory(){
+            event.preventDefault();
+            this.collapse = true;
+            this.activeLink = 'pollHistory';
+            this.$router.push('/poll-history');
+        },
         transferIndustryTo(industry){
+            event.preventDefault();
             this.collapse = true;
             this.activeLink = industry;
-            // this.$router.push(`/industry/${industry}`);
+            this.$router.push(`/industry/${industry}`);
             // '/polls/'+industyName
         },
         getListOfIndustries(){
@@ -298,6 +330,9 @@ export default {
                 }
                 else if(parts[1] === "create-account"){
                     this.activeLink = 'registration';
+                }
+                else if(parts[1] === "poll-history"){
+                    this.activeLink = 'pollHistory';
                 }
             }
         },

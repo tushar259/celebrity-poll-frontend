@@ -12,10 +12,10 @@
                         <thead>
                             <tr>
                                 <th><input class="form-control" v-model="starName" @input="handleGivenInput('starName')" placeholder="Star name"></th>
-                                <th><input type="number" class="form-control" v-model="totalVotes" @input="handleGivenInput('totalVotes')" placeholder="Total votes received >"></th>
+                                <th><input type="number" class="form-control" v-model="totalVotes" @input="handleGivenInput('totalVotes')" placeholder="Votes greater than >"></th>
                                 <th></th>
-                                <th><input type="number" class="form-control" v-model="nominated" @input="handleGivenInput('nominated')" placeholder="Nominated >"></th>
-                                <th><input type="number" class="form-control" v-model="wonPoll" @input="handleGivenInput('wonPoll')" placeholder="Won >"></th>
+                                <th><input type="number" class="form-control" v-model="nominated" @input="handleGivenInput('nominated')" placeholder="Nominations greater than >"></th>
+                                <th><input type="number" class="form-control" v-model="wonPoll" @input="handleGivenInput('wonPoll')" placeholder="Wins greater than >"></th>
                             </tr>
                             <tr>
                                 <th>Star name</th>
@@ -77,6 +77,7 @@
                     item.averageVotes = item.total_votes_received / item.total_nominations;
                     this.pollHistory.push(item);
                     this.originalPollHistory.push(item);
+                    this.pageDescriptionForMeta += item.star_name +" (Votes "+item.total_votes_received+", Won "+item.total_won+"), "
                 });
             }
 
@@ -88,7 +89,7 @@
                 title: 'Fans - Poll History',
                 meta: [
                     
-                    {name: 'description', content: this.pageDescriptionForMeta+"Total Population: "+this.totalPopulation+"."},
+                    {name: 'description', content: this.pageDescriptionForMeta},
 
                     // {name: 'description', content: this.afterPollDescription },
 

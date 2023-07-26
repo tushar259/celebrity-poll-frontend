@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 log-reg-pas-container">
-                <h2 class="text-center mb-4 font-weight-bold">Change password</h2>
+                <h2 class="text-center mb-4">Change password</h2>
                 
                 <div v-if="emailFound == 'second phase'">
                     <div class="form-group">

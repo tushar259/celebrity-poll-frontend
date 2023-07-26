@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6 log-reg-pas-container">
                 <img class="log-reg-logo-image mx-auto d-block" :src="apiUrl+'/logo/favicon2.png'" alt="logo">
-                <h2 class="text-center font-weight-bold">Login</h2>
+                <h2 class="text-center">Login</h2>
                 <div class="text-center lite-color-in-project">Login to continue with us.</div>
                 <div class="px-20-gap"></div>
                 <div class="form-group">
