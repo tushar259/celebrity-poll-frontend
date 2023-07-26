@@ -81,12 +81,12 @@
                         <div class="col-md-12">
                             <p>
                                 Disclaimer: [Your Website Name] is an independent platform and is not affiliated with any particular star or celebrity.
-                                All content, including text, images, and logos displayed on [Your Website Name], is protected by copyright laws.
+                                All content including text displayed on [Your Website Name] except images, is protected by copyright laws.
                             </p>
                             <p>
                                 <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-and-conditions">Terms and Conditions</a> | <!-- <a href="/copyright">Copyright Notice</a> |--> <a href="/about-us">About us</a> | <a href="/report-problem">Report a Problem</a>
                             </p>
-                            <p>&copy; [Year] [Your Website Name]. All rights reserved. | Designed and developed by [Your Name].
+                            <p>&copy; [Year] [Your Website Name]. All rights reserved.
 
                             </p>
                         </div>

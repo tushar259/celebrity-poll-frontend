@@ -13,12 +13,12 @@
                 <div class="image-card-body">
                     <img :src="apiUrl+'/'+thumbnail">
                     <br>
-                    <p class="texts-under-thumbnail">image courtesy</p>
+                    <p class="texts-under-thumbnail">image courtesy: Google, Facebook, Instagram, Twitter, Pinterest, Wikipedia.</p>
                     <h1 class="poll-title texts-under-thumbnail">{{pollTitle}}?</h1>
                     <div class="d-flex align-items-center texts-under-thumbnail">
-                        <div class="poll-date">Started {{startingDate}}</div>
+                        <div class="poll-date">Started - {{startingDate}}</div>
                         <div class="distance-between-two custom-align">|</div>
-                        <div class="poll-date">Published {{publishedDate}}</div>
+                        <div class="poll-date">Published - {{publishedDate}}</div>
                     </div>
                 </div>
                 <div class="px-10-gap"></div>
@@ -111,9 +111,9 @@
                 this.pollTitle = response.data.title_n_other_info.poll_title;
                 this.afterPollDescription = response.data.title_n_other_info.after_poll_description;
                 this.whichIndustry = response.data.title_n_other_info.which_industry;
-                this.startingDate = moment(response.data.title_n_other_info.starting_date).format('MMM D, YYYY h:mm A');
+                this.startingDate = moment(response.data.title_n_other_info.starting_date).format('D MMM YYYY');
                 this.endingDate = response.data.title_n_other_info.ending_date;
-                this.publishedDate = moment(response.data.title_n_other_info.updated_at).format('MMM D, YYYY h:mm A');
+                this.publishedDate = moment(response.data.title_n_other_info.updated_at).format('D MMM YYYY');
                 
                 this.winnersName = response.data.title_n_other_info.winners_name;
                 
