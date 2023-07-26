@@ -22,9 +22,11 @@
                         </div>
                     </li>
                     <li class="nav-item active">
+                        <NuxtLink class="nav-link" to="/poll-history" :class="{ 'active': activeLink === 'pollHistory' }" @click="collapse = true,activeLink = 'pollHistory'">Poll History</NuxtLink>
+                    </li>
+                    <li class="nav-item active">
                         <NuxtLink class="nav-link" to="/countries" :class="{ 'active': activeLink === 'countries' }" @click="collapse = true,activeLink = 'countries'">Countries</NuxtLink>
                     </li>
-                    
                 </ul>
                 <hr class="my-1">
                 <ul class="navbar-nav ml-auto" :class="{'d-none': foundLoggedinUser}"> <!-- d-none -->
