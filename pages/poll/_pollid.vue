@@ -64,7 +64,7 @@
             <div class="col-md-5 custom-column">
                 <div class="poll-page-custom-card">
                     <h5>{{ pollTitle }}?</h5>
-                    <span class="lite-color-in-project">Participate in Poll, Choose Your Answer.</span>
+                    <span class="lite-color-in-project">Participate in Poll, Cast your vote.</span>
                     <div class="px-30-gap"></div>
                     <div  v-for="(poll, index) in pollsVoted" :key="index" class="polls-in-page">
                         <div class="form-check">

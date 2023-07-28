@@ -163,8 +163,10 @@
                 this.pollFound = true;
                 this.allRecentPollsFound = true;
                 // this.allRecentUploadedPolls = recentPolls.all_polls;
+                console.log("recentPolls: ", recentPolls);
                 recentPolls.all_polls.forEach(item => {
                     item.ending_date = moment(item.ending_date).format('D MMM YYYY');
+                    // item.votes = item.votes + item.extra_votes;
                     this.pageDescriptionForMeta += item.poll_title +'. ';
                     this.allRecentUploadedPolls.push(item);
                 });
@@ -178,6 +180,7 @@
                 this.pollFound = true;
                 this.allPollFound = true;
                 // this.allPolls = pollsEnding.all_polls;
+                
                 pollsEnding.all_polls.forEach(item => {
                     item.ending_date = moment(item.ending_date).format('D MMM YYYY');
                     this.pageDescriptionForMeta += item.poll_title +'. ';
@@ -190,6 +193,7 @@
 
 
             if(pollResults.success === true){
+                console.log("pollResults: ", pollResults);
                 this.pollFound = true;
                 this.resultPollsFound = true;
                 // this.resultAllPolls = pollResults.all_poll_result;
