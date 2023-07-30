@@ -169,7 +169,7 @@ export default {
             this.collapse = true;
             this.activeLink = 'home';
             this.$router.push('/');
-            console.log("this.activeLink: "+this.activeLink);
+            // console.log("this.activeLink: "+this.activeLink);
         },
         
         getCurrentWindowLocation(){
@@ -196,7 +196,7 @@ export default {
                 this.activeLink = 'pollHistory';
             }
 
-            console.log("this.activeLink: "+this.activeLink);
+            // console.log("this.activeLink: "+this.activeLink);
             // else{
             //     this.activeLink = 'home';
             // }
@@ -232,7 +232,7 @@ export default {
         getListOfIndustries(){
             this.$axios.get('/api/get-list-of-industries')
             .then(response =>{
-                console.log(response);
+                // console.log(response);
                 if(response.data.success === true){
                     response.data.all_industry.forEach(item =>{
                         this.allIndustry.push(item);
@@ -251,7 +251,7 @@ export default {
         },
 
         updateSpecificDivClass(usersEmailFromComponent){
-            console.log("ifUser: ",usersEmailFromComponent);
+            // console.log("ifUser: ",usersEmailFromComponent);
             if(usersEmailFromComponent !== ""){
                 this.userEmail = usersEmailFromComponent;
                 this.foundLoggedinUser = true;
@@ -275,7 +275,7 @@ export default {
                         }
                     })
                     .then(response =>{
-                        console.log(response.data);
+                        // console.log(response.data);
                         if(response.data.success === true && response.data.message === "User logged in"){
                             this.foundLoggedinUser = true;
                             this.userEmail = response.data.userInfoFromTk.email;
@@ -303,7 +303,7 @@ export default {
                 this.collapse = true;
                 // localStorage.setItem('logout', 'clicked');
                 this.currentPage = window.location.pathname;
-                console.log("what is currentpage: "+this.currentPage);
+                // console.log("what is currentpage: "+this.currentPage);
                 localStorage.removeItem('token');
                 this.userEmail = null;
                 this.foundLoggedinUser = false;

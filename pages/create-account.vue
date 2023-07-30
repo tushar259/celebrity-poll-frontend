@@ -173,7 +173,7 @@
                             this.checkIfEmailUsed = true;
                             this.emailMessage = "<span style='color:red;'>"+response.data.message+"</span>";
                         }
-                        console.log(response.data);
+                        // console.log(response.data);
                     })
                     .catch(error =>{
                         console.log(error);
@@ -247,7 +247,7 @@
                             this.isLoading = false;
                         }
                         
-                        console.log(response.data);
+                        // console.log(response.data);
                     })
                     .catch(error => {
                         this.$toast.error("Something went wrong");
@@ -331,7 +331,7 @@
                             }
                         })
                         .then(response =>{
-                            console.log(response.data);
+                            // console.log(response.data);
                             if(response.data.success === true && response.data.message === "User logged in"){
                                 this.userEmail = response.data.userInfoFromTk.email;
                                 this.$router.push(`/`);
@@ -342,9 +342,7 @@
                             console.log(error);
                         });
                     }
-                    else{
-                        console.log("no token in storage");
-                    }
+                    
                 }
             }
         }

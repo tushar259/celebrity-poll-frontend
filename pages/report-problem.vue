@@ -97,7 +97,7 @@
                     };
                     this.$axios.post('/api/report-a-problem', formData)
                     .then(response =>{
-                        console.log(response);
+                        // console.log(response);
                         if(response.data.success === true){
                             this.name = '';
                             this.subject = '';

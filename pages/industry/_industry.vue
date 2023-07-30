@@ -178,7 +178,7 @@
             const endingPolls = await this.$axios.post('/api/get-all-poll-industry-wise', {"industryName": this.industryName});
             const pollResults = await this.$axios.post('/api/get-result-list-poll-industry-wise', {"industryName": this.industryName});
             
-            console.log("recentPolls: ", recentPolls);
+            // console.log("recentPolls: ", recentPolls);
             if(recentPolls.data.success === true){
                 this.pollFound = true;
                 allRecentPollsFound = true;
@@ -226,7 +226,7 @@
             if(this.pollFound === null){
                 this.pollFound = false;
             }
-            console.log("this.pollFound: "+this.pollFound);
+            // console.log("this.pollFound: "+this.pollFound);
             this.allRecentPollsFound = allRecentPollsFound;
             this.allPollFound = allPollFound;
             this.resultPollsFound = resultPollsFound;
@@ -319,7 +319,7 @@
                             item.ending_date = moment(item.ending_date).format('D MMM YYYY');
                             this.allPolls.push(item);
                         });
-                        console.log(this.allPolls);
+                        // console.log(this.allPolls);
                     }
                     else if(response.data.success === false && response.data.message === "No polls uploaded yet"){
                         this.allPollFound = false;
@@ -355,7 +355,7 @@
                     else if(response.data.success === false && response.data.message === "No poll found"){
                         this.resultPollsFound = false;
                     }
-                    console.log(response.data);
+                    // console.log(response.data);
                 })
                 .catch(error => {
                     console.log(error);

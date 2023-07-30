@@ -14,6 +14,9 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" v-model="password" @keyup.enter="loginNow()" placeholder="Password">
+                    <!-- <button class="btn btn-outline-secondary" type="button" id="togglePassword" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye" id="eyeIcon"></i>
+                    </button> -->
                     <small v-html="passwordMessage"></small>
                 </div>
                 <div class="form-group text-right">

@@ -331,13 +331,13 @@
                         this.endingDate = moment(response.data.title_n_other_info.ending_date).format('D MMM YYYY');
                         this.tableNameStartsWith = response.data.title_n_other_info.table_name_starts_with;
 
-                        console.log(response.data );
+                        // console.log(response.data );
                         // let pollObject = {
                         //     "polls": "",
                         //     "votes": 0,
                         //     "percent": 0
                         // };
-                        console.log(this.beforePollDescription);
+                        // console.log(this.beforePollDescription);
                         
                         response.data.polls_n_counts.forEach(item => {
                             // pollObject.polls = item.polls;
@@ -385,7 +385,7 @@
                         // this.$router.push('/*');
                         this.pollFound = false;
                     }
-                    console.log(response);
+                    // console.log(response);
                 })
                 .catch(error => {
                     console.log(error);
@@ -393,7 +393,7 @@
             },
 
             selectedOptionToVote(id){
-                console.log(id);
+                // console.log(id);
                 this.idSelectedToVote = id;
             },
 
@@ -413,7 +413,7 @@
                                 }
                             })
                             .then(response =>{
-                                console.log(response.data);
+                                // console.log(response.data);
                                 if(response.data.success === true && response.data.message === "User logged in"){
                                     this.userEmail = response.data.userInfoFromTk.email;
                                     resolve(true);
@@ -468,7 +468,7 @@
                     if(localStorage.getItem('token')){
                         if (this.token.length > 0) {
                             this.checkIfUserLoggedin().then((value) => {
-                                console.log("Is he logged in: " + this.userEmail);
+                                // console.log("Is he logged in: " + this.userEmail);
                                 if (value === true) {
                                     this.voteNow();
                                 } 
@@ -525,7 +525,7 @@
                     };
                     this.$axios.post('/api/vote-selected-candidate', formData)
                     .then(response => {
-                        console.log(response);
+                        // console.log(response);
                         this.pollsVoted = [];
                         if(response.data.success === true){
                             response.data.new_polls.forEach(item => {

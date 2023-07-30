@@ -161,7 +161,7 @@
                             // this.submitFormMessage = "<span style='color:red;'>"+response.data.message+"</span>";
                             this.isLoading = false;
                         }
-                        console.log(response.data);
+                        // console.log(response.data);
                     })
                     .catch(error => {
                         this.$toast.error("Something went wrong!");
@@ -194,7 +194,7 @@
                 // this.submitFormMessage = "";
                 this.changePasswordMessage = "";
                 this.confirmPasswordMessage = "";
-                console.log(this.changePassword.length);
+                // console.log(this.changePassword.length);
                 if(this.changePassword === "" || this.confirmPassword === "" || this.changePassword.length < 5 || this.changePassword.length > 20 || (this.changePassword !== this.confirmPassword) || (this.email === "" || this.userIdFromDatabase === "")){
                     if(this.changePassword === ""){
                         this.changePasswordMessage = "<span style='color:red;'>Password cannot be empty.</span>";
@@ -271,7 +271,7 @@
                             }
                         })
                         .then(response =>{
-                            console.log(response.data);
+                            // console.log(response.data);
                             if(response.data.success === true && response.data.message === "User logged in"){
                                 this.emailFound = "second phase";
                                 this.userEmail = response.data.userInfoFromTk.email;

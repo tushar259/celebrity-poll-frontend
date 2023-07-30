@@ -117,7 +117,7 @@
             getCountriesInfoFromApi(){
                 this.$axios.get('https://restcountries.com/v3.1/all')
                 .then(response => {
-                    console.log(response);
+                    // console.log(response);
                     const countries = response.data.map(country => ({
                         name: country.name.common,
                         population: country.population,
@@ -125,8 +125,8 @@
 
                     const totalPopulation = countries.reduce((total, country) => total + country.population, 0);
 
-                    console.log('Countries:', countries);
-                    console.log('Total Population:', totalPopulation);
+                    // console.log('Countries:', countries);
+                    // console.log('Total Population:', totalPopulation);
                 })
                 .catch(error =>{
                     console.log('Error: ',error);
@@ -136,7 +136,7 @@
             getCountriesInfoFromController(){
                 this.$axios.get('/api/show-country-list')
                 .then(response =>{
-                    console.log(response);
+                    // console.log(response);
                     response.data.countries_list.forEach(item => {
                         this.totalPopulation += item.population;
                         this.countries.push(item);

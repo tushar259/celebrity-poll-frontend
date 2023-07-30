@@ -163,7 +163,7 @@
                 this.pollFound = true;
                 this.allRecentPollsFound = true;
                 // this.allRecentUploadedPolls = recentPolls.all_polls;
-                console.log("recentPolls: ", recentPolls);
+                // console.log("recentPolls: ", recentPolls);
                 recentPolls.all_polls.forEach(item => {
                     item.ending_date = moment(item.ending_date).format('D MMM YYYY');
                     // item.votes = item.votes + item.extra_votes;
@@ -193,7 +193,7 @@
 
 
             if(pollResults.success === true){
-                console.log("pollResults: ", pollResults);
+                // console.log("pollResults: ", pollResults);
                 this.pollFound = true;
                 this.resultPollsFound = true;
                 // this.resultAllPolls = pollResults.all_poll_result;
@@ -280,7 +280,7 @@
                             item.ending_date = moment(item.ending_date).format('D MMM YYYY');
                             this.allPolls.push(item);
                         });
-                        console.log(response);
+                        // console.log(response);
                     }
                     else if(response.data.success === false && response.data.message === "No polls uploaded yet"){
                         this.allPollFound = false;
@@ -311,7 +311,7 @@
                     else if(response.data.success === false && response.data.message === "No poll found"){
                         this.resultPollsFound = false;
                     }
-                    console.log(response.data);
+                    // console.log(response.data);
                 })
                 .catch(error => {
                     console.log(error);
@@ -373,7 +373,7 @@
                             }
                         })
                         .then(response =>{
-                            console.log(response.data);
+                            // console.log(response.data);
                             if(response.data.success === true && response.data.message === "User logged in"){
                                 this.userEmail = response.data.userInfoFromTk.email;
                                 // this.userId = response.data.userInfoFromTk.id;

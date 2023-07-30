@@ -180,7 +180,7 @@
                         this.publishedDate = moment(response.data.title_n_other_info.updated_at).format('MMM D, YYYY h:mm A');
                         // this.publishedDate = this.beautifyTime(response.data.title_n_other_info.updated_at);
                         this.winnersName = response.data.title_n_other_info.winners_name;
-                        console.log(response.data );
+                        // console.log(response.data );
                         
                         
                         this.totalVotes = response.data.total_votes;
@@ -195,7 +195,7 @@
                         // this.$router.push('/*');
                         this.pollFound = false;
                     }
-                    console.log(response);
+                    // console.log(response);
                 })
                 .catch(error => {
                     console.log(error);
