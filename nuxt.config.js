@@ -14,19 +14,22 @@ export default {
         ],
         link: [
             {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-            {rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css", integrity: "sha512-..", crossorigin: "anonymous", referrerpolicy: "no-referrer" }
 
+            {rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css", integrity: "sha512-..", crossorigin: "anonymous", referrerpolicy: "no-referrer" },
+            
             // {
             //     rel: 'stylesheet',
             //     href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap'
             // }
-        ]
+        ],
     },
 
     css: [
         '~/assets/custom.css',
+        'bootstrap/dist/css/bootstrap.css',
         'bootstrap/dist/css/bootstrap.min.css',
         'vue-toastification/dist/index.css',
+        '@fortawesome/fontawesome-free/css/all.css'
     ],
 
     plugins: [

@@ -100,7 +100,8 @@
         async fetch() {
             this.apiUrl = this.$axios.defaults.baseURL;
             this.pollId = this.$route.params.pollid;
-            this.pollId = this.pollId.replace(":", "");
+            this.pollId = this.pollId.replace(/:/g, '');
+            this.pollId = this.pollId.replace(/-/g, ' ');
             const formData = {
                 'pollId': this.pollId
             };

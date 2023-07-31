@@ -37,7 +37,7 @@
             <div class="col-md-6" style="text-align: right;">
                 
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary share-button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button type="button" id="shareButton" class="btn btn-primary share-button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span><i class="fas fa-share-alt"></i> Share</span>
                     </button>
                     <ul class="dropdown-menu share-dropdown-button">
@@ -50,8 +50,11 @@
                                 <img :src="apiUrl+'/logo/Twitter-logo.svg.png'" alt="Twitter Share" style="height: 26px;width: 33px;">
                             </a>
                         
-                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="instagram" @click="shareOnInstagram">
+                            <!-- <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="instagram" @click="shareOnInstagram">
                                 <img :src="apiUrl+'/logo/Instagram_logo_2016.svg.webp'" alt="LinkedIn Share" style="height: 27px;width: 27px;">
+                            </a> -->
+                            <a href="#" @click="copyLinkToClipboard()">
+                                <i class="fas fa-copy fa-lg"></i>
                             </a>
                         </li>
                     </ul>
@@ -122,7 +125,11 @@
 
                 // {name: 'description', content: "polls, poll, lionel messi, messi, ronaldo, cristiano ronalo, neymar, neymar jr, ronaldinho, shah rukh khan, srk, salman khan, salman, bts, taehyung, v, jungkook, jinn, black pink, momoland, nancy jewel mcdonie, katrina kaif, katrina, deepika padukone, deepika, alia bhatt, alia, ileana d'cruz, aishwarya rai, akshay kumar, hrithik roshan, ranveer singh, ranbir kapoor, kareena kapoor, virat kohli, rohit sharma, ms dhoni" },
                 
-            ]
+            ],
+            script: [
+                // Add the Bootstrap JavaScript link here
+                // { src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js' },
+            ],
         },
 
         data: () => ({
@@ -151,7 +158,8 @@
         async fetch() {
             this.apiUrl = this.$axios.defaults.baseURL;
             this.pollId = this.$route.params.pollid;
-            this.pollId = this.pollId.replace(":", "");
+            this.pollId = this.pollId.replace(/:/g, '');
+            this.pollId = this.pollId.replace(/-/g, ' ');
             const formData = {
                 'pollId': this.pollId
             }
@@ -245,6 +253,19 @@
         },
 
         methods: {
+            copyLinkToClipboard(){
+                if(process.client){
+                    const urlToCopy = window.location.href;
+                    const dummyTextArea = document.createElement('textarea');
+                    dummyTextArea.value = urlToCopy;
+                    document.body.appendChild(dummyTextArea);
+                    dummyTextArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(dummyTextArea);
+
+                    this.$toast.success('Link copied to clipboard!');
+                }
+            },
             shareOnFacebook() {
                 if(process.client){
                     const protocol = window.location.protocol; // e.g., "http:" or "https:"

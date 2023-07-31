@@ -99,6 +99,7 @@
 
 <script>
 // import axios from 'axios';
+
 export default {
     head: {
         link: [
@@ -106,7 +107,6 @@ export default {
             {rel: 'stylesheet', href: 'https://fonts.bunny.net/css?family=figtree:400,600&display=swap',},
             {rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',},
             {rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',},
-            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
         script: [
             {src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',},
@@ -114,7 +114,9 @@ export default {
             {src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',},
             {src: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' },
             {src: 'https://kit.fontawesome.com/a076d05399.js', crossorigin: 'anonymous' },
-        ],
+            { src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js' },
+        ]
+        
     },
 
     data: () => ({
