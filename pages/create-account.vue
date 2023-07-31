@@ -44,7 +44,7 @@
                 </div>
                 <small style="display: inline-block; vertical-align: middle;">
                     <input type="checkbox" style="vertical-align: middle;" v-model="isChecked">
-                    <span style="margin-left: 5px;">I accept <router-link to="/terms-and-conditions" target="_blank">terms and conditions</router-link></span>
+                    <span style="margin-left: 5px;">I accept <router-link to="/terms-and-conditions" target="_blank">Terms and conditions</router-link> & <router-link to="/privacy-policy">Privacy policy</router-link></span>
                 </small>
                 <div class="px-5-gap"></div>
                 <small v-html="termsNconditionsMessage"></small>
