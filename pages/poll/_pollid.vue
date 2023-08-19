@@ -43,11 +43,11 @@
                     <ul class="dropdown-menu share-dropdown-button">
                         <li>
                             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="facebook" style="margin-right: 0px;" @click="shareOnFacebook">
-                                <img :src="apiUrl+'/logo/Facebook-logo.png'" alt="Facebook Share" style="height: 32px;width: 51px;">
+                                <img :src="apiUrl+'/logo/Facebook-logo.png'" alt="Facebook Share" style="height: 30px;width: 48px;">
                             </a>
                         
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="twitter" style="margin-right: 8px;" @click="shareOnTwitter">
-                                <img :src="apiUrl+'/logo/Twitter-logo.svg.png'" alt="Twitter Share" style="height: 26px;width: 33px;">
+                                <img :src="apiUrl+'/logo/Twitter-logo.svg.png'" alt="Twitter Share" style="height: 24px;width: 31px;">
                             </a>
                         
                             <!-- <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="instagram" @click="shareOnInstagram">

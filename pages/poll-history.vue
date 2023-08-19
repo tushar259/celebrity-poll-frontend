@@ -7,10 +7,11 @@
             </div>
             <div class="row">
                 
-                <div class="col-md-12">
+                <div class="col-md-12 horizontal-scroll-container">
                     <table class="table table-striped">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th><input class="form-control" v-model="starName" @input="handleGivenInput('starName')" placeholder="Star name"></th>
                                 <th><input type="number" class="form-control" v-model="totalVotes" @input="handleGivenInput('totalVotes')" placeholder="Votes greater than >"></th>
                                 <th></th>
@@ -18,6 +19,7 @@
                                 <th><input type="number" class="form-control" v-model="wonPoll" @input="handleGivenInput('wonPoll')" placeholder="Wins greater than >"></th>
                             </tr>
                             <tr>
+                                <th></th>
                                 <th>Star name</th>
                                 <th>Total votes received</th>
                                 <th>Average votes</th>
@@ -27,6 +29,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(poll, index) in pollHistory" :key="index" :class="index % 2 === 0 ? 'even-row' : 'odd-row'">
+                                <td>{{index+1}}</td>
                                 <td class="capitalized">{{ poll.star_name }}</td>
                                 <td>{{ formatNumber(poll.total_votes_received) }}</td>
                                 <td>{{ formatNumber(poll.averageVotes)}}</td>
@@ -74,7 +77,12 @@
             const response = await this.$axios.$get('/api/get-list-of-all-poll-history');
             if(response.success === true){
                 response.value.forEach(item => {
-                    item.averageVotes = item.total_votes_received / item.total_nominations;
+                    if(item.total_votes_received > 0){
+                        item.averageVotes = item.total_votes_received / item.total_nominations;
+                    }
+                    else{
+                        item.averageVotes = 0;
+                    }
                     this.pollHistory.push(item);
                     this.originalPollHistory.push(item);
                     this.pageDescriptionForMeta += item.star_name +" (Votes "+item.total_votes_received+", Won "+item.total_won+"), "
