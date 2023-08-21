@@ -11,15 +11,15 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th></th>
-                                <th><input class="form-control" v-model="starName" @input="handleGivenInput('starName')" placeholder="Star name"></th>
-                                <th><input type="number" class="form-control" v-model="totalVotes" @input="handleGivenInput('totalVotes')" placeholder="Votes greater than >"></th>
-                                <th></th>
-                                <th><input type="number" class="form-control" v-model="nominated" @input="handleGivenInput('nominated')" placeholder="Nominations greater than >"></th>
-                                <th><input type="number" class="form-control" v-model="wonPoll" @input="handleGivenInput('wonPoll')" placeholder="Wins greater than >"></th>
+                                <th class="col-auto"></th>
+                                <th class="col-3"><input class="form-control" v-model="starName" @input="handleGivenInput('starName')" placeholder="Star name"></th>
+                                <th class="col-2"><input type="number" class="form-control" v-model="totalVotes" @input="handleGivenInput('totalVotes')" placeholder="Greater than >"></th>
+                                <th class="col-2"></th>
+                                <th class="col-2"><input type="number" class="form-control" v-model="nominated" @input="handleGivenInput('nominated')" placeholder="Greater than >"></th>
+                                <th class="col-2"><input type="number" class="form-control" v-model="wonPoll" @input="handleGivenInput('wonPoll')" placeholder="Greater than >"></th>
                             </tr>
                             <tr>
-                                <th></th>
+                                <th>Rank</th>
                                 <th>Star name</th>
                                 <th>Total votes received</th>
                                 <th>Average votes</th>
@@ -28,7 +28,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(poll, index) in pollHistory" :key="index" :class="index % 2 === 0 ? 'even-row' : 'odd-row'">
+                            <tr v-for="(poll, index) in pollHistory" :key="index" :class="index % 2 == 0 ? 'even-row' : 'odd-row'">
                                 <td>{{index+1}}</td>
                                 <td class="capitalized">{{ poll.star_name }}</td>
                                 <td>{{ formatNumber(poll.total_votes_received) }}</td>

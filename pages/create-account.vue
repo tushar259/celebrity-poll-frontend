@@ -16,7 +16,7 @@
                     <input type="password" class="form-control" id="password" v-model="password" @keyup.enter="createAccount()" placeholder="Password">
                     <small v-html="passwordMessage"></small>
                 </div>
-                <div class="form-group">
+                <div class="form-group" title="Your selected question will be asked if you forget password">
                     <label for="question">Password Recovery Question*</label>
                     <select class="form-control" id="question" v-model="selectedQuestion">
                         <option value="">Select a question</option>
@@ -31,14 +31,14 @@
                         <option value="What is the name of your best friend?">What is the name of your best friend?</option>
                         <option value="What is your favorite vacation destination?">What is your favorite vacation destination?</option>
                     </select>
-                    <small>*Your selected question will be asked if you forget password*</small>
+                    <!-- <small>*Your selected question will be asked if you forget password*</small> -->
                     <div class="px-5-gap"></div>
                     <small v-html="recoveryQueMessage"></small>
                 </div>
-                <div class="form-group">
+                <div class="form-group" title="Remember your answer to recover your password">
                     <label for="answer">Password Recovery Answer*</label>
                     <input class="form-control" id="answer" v-model="selectedAnswer" @keyup.enter="createAccount()" placeholder="Answer">
-                    <small>*Remember your answer to recover your password*</small>
+                    <!-- <small>*Remember your answer to recover your password*</small> -->
                     <div class="px-5-gap"></div>
                     <small v-html="recoveryAnsMessage"></small>
                 </div>
