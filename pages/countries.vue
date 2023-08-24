@@ -16,7 +16,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(country, index) in countries" :key="index" :class="index % 2 === 0 ? 'even-row' : 'odd-row'">
+                            <tr v-if="dataFetched == false">
+                                <td class="loading-spinner-view parent-background">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr v-else v-for="(country, index) in countries" :key="index" :class="index % 2 === 0 ? 'even-row' : 'odd-row'">
                                 <td>{{ country.name }}</td>
                                 <td>{{ formatNumber(country.population) }}</td>
                             </tr>
@@ -55,7 +62,8 @@
             apiUrl: null,
             countries: [],
             totalPopulation: 0,
-            pageDescriptionForMeta: ''
+            pageDescriptionForMeta: '',
+            dataFetched: false,
         }),
         
         async fetch() {
@@ -67,6 +75,7 @@
                     this.pageDescriptionForMeta += item.name + ": "+item.population+", "
                     this.countries.push(item);
                 });
+                this.dataFetched = true;
             }
 
             // const protocol = window.location.protocol;

@@ -28,7 +28,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(poll, index) in pollHistory" :key="index" :class="index % 2 == 0 ? 'even-row' : 'odd-row'">
+                            <tr v-if="dataFetched == false">
+                                <td class="loading-spinner-view parent-background">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr v-else v-for="(poll, index) in pollHistory" :key="index" :class="index % 2 == 0 ? 'even-row' : 'odd-row'">
                                 <td>{{index+1}}</td>
                                 <td class="capitalized">{{ poll.star_name }}</td>
                                 <td>{{ formatNumber(poll.total_votes_received) }}</td>
@@ -69,7 +76,8 @@
             totalVotes: '',
             nominated: '',
             wonPoll: '',
-            pageDescriptionForMeta: ''
+            pageDescriptionForMeta: '',
+            dataFetched: false,
         }),
         
         async fetch() {
@@ -87,6 +95,7 @@
                     this.originalPollHistory.push(item);
                     this.pageDescriptionForMeta += item.star_name +" (Votes "+item.total_votes_received+", Won "+item.total_won+"), "
                 });
+                this.dataFetched = true;
             }
 
             // const protocol = window.location.protocol;
