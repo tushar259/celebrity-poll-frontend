@@ -203,18 +203,18 @@
                 title: 'Poll - '+this.pollTitle,
                 meta: [
                     
-                    {name: 'description', content: this.pageDescriptionForMeta},
+                    {name: 'description', content: 'Popular website conducted a poll. '+this.pageDescriptionForMeta},
 
                     {name: 'description', content: this.beforePollDescription },
 
                     { hid: 'og:title', property: 'og:title', content: 'Poll - '+this.pollTitle },
-                    { hid: 'og:description', property: 'og:description', content: this.pageDescriptionForMeta },
+                    { hid: 'og:description', property: 'og:description', content: 'Popular website conducted a poll. '+this.pageDescriptionForMeta },
                     { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/'+this.thumbnail },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/poll/'+this.pollId },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
                     { name: 'twitter:title', content: 'Poll - '+this.pollTitle },
-                    { name: 'twitter:description', content: this.pageDescriptionForMeta },
+                    { name: 'twitter:description', content: 'Popular website conducted a poll. '+this.pageDescriptionForMeta },
                     { name: 'twitter:image', content: this.apiUrl+'/'+this.thumbnail },
                     { name: 'twitter:card', content: 'summary_large_image' },
 
