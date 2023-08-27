@@ -16,7 +16,7 @@
                     <p class="texts-under-thumbnail">image courtesy: Google, Facebook, Instagram, Twitter, Pinterest, Wikipedia.</p>
                     <h1 class="poll-title texts-under-thumbnail">{{pollTitle}}?</h1>
                     <div class="d-flex align-items-center texts-under-thumbnail">
-                        <div class="poll-date">Uploaded - {{startingDate}}</div>
+                        <div class="poll-date">Started - {{startingDate}}</div>
                         <div class="distance-between-two custom-align">&bull;</div>
                         <div class="poll-date">Closing - {{endingDate}}</div>
                     </div>
@@ -71,7 +71,7 @@
                     <div class="px-30-gap"></div>
                     <div  v-for="(poll, index) in pollsVoted" :key="index" class="polls-in-page">
                         <div class="form-check">
-                            <input class="form-check-input exampleRadios-in-poll" type="radio" name="exampleRadios" :id="`exampleRadios${index}`" @change="selectedOptionToVote(poll.id)" :value="poll.id">
+                            <input class="form-check-input exampleRadios-in-poll" type="radio" name="exampleRadios" :id="`exampleRadios${index}`" @change="selectedOptionToVote(poll.id, poll.polls)" :value="poll.id">
                             
                             <div class="total-votes">
                                 <div class="votes-received-here" :style="{'width': poll.percent + '%'}"></div>
@@ -152,7 +152,8 @@
             token: process.client ? localStorage.getItem('token') : '',
             userEmail: '',
             voteMessage: '',
-            pageDescriptionForMeta: ''
+            pageDescriptionForMeta: '',
+            selectedPollTagName: ''
         }),
 
         async fetch() {
@@ -225,7 +226,7 @@
 
             if (process.client){
                 document.title = 'Poll - '+this.pollTitle;
-                window.scrollTo(0, 500);
+                // window.scrollTo(0, 500);
             }
         },
 
@@ -413,9 +414,10 @@
                 });
             },
 
-            selectedOptionToVote(id){
+            selectedOptionToVote(id, name){
                 // console.log(id);
                 this.idSelectedToVote = id;
+                this.selectedPollTagName = name;
             },
 
             checkIfUserLoggedin(){
@@ -550,17 +552,26 @@
                         this.pollsVoted = [];
                         if(response.data.success === true){
                             response.data.new_polls.forEach(item => {
-                                
+                                // const votesNumber = parseInt(item.votes);
                                 if(((item.votes / response.data.total_votes) * 100).toFixed(2) > 0){
                                     item.percent = ((item.votes / response.data.total_votes) * 100).toFixed(2);
                                 }
                                 else{
                                     item.percent = 0;
                                 }
+                                
+                                // item.votes = votesNumber.toLocaleString();
+                                item.votes = parseInt(item.votes);
                                 this.pollsVoted.push(item);
                             });
                             this.totalVotes = parseInt(response.data.total_votes);
-                            this.$toast.success(response.data.message);
+                            if(response.data.message === "You have already voted."){
+                                this.$toast.success(response.data.message);
+                            }
+                            else{
+                                this.$toast.success(response.data.message+" You have voted '"+this.capitalizeWords(this.selectedPollTagName)+"'");
+                            }
+                            
                             // this.voteMessage = "<span style='color:green;'>"+response.data.message+"</span>";
                         }
                         this.disableVote = false;
@@ -570,6 +581,14 @@
                         this.disableVote = false;
                     });
                 }
+            },
+
+            capitalizeWords(inputString) {
+                return inputString
+                    .toLowerCase()
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
             }
             
         }
