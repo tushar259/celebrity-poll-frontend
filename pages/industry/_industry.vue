@@ -50,7 +50,7 @@
                             </div>
                         </router-link>
                         <div v-if="index%6==0">
-                            ad
+                            <!-- ad -->
                         </div>
                     </div>
                     

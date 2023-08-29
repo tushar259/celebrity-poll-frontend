@@ -13,7 +13,7 @@
                 <div class="image-card-body">
                     <img :src="apiUrl+'/'+thumbnail">
                     <br>
-                    <p class="texts-under-thumbnail">image courtesy: Google, Facebook, Instagram, Twitter, Pinterest, Wikipedia.</p>
+                    <p class="texts-under-thumbnail">image courtesy: Google, Facebook, Instagram, Twitter, Pinterest, Wikipedia, IMDB, etc.</p>
                     <h1 class="poll-title texts-under-thumbnail">{{pollTitle}}?</h1>
                     <div class="d-flex align-items-center texts-under-thumbnail">
                         <div class="poll-date">Started - {{startingDate}}</div>
