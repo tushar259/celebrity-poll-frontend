@@ -569,7 +569,7 @@
                                 this.$toast.success(response.data.message);
                             }
                             else{
-                                this.$toast.success(response.data.message+" You have voted '"+this.capitalizeWords(this.selectedPollTagName)+"'");
+                                this.$toast.success("You have voted '"+this.capitalizeWords(this.selectedPollTagName)+"'");
                             }
                             
                             // this.voteMessage = "<span style='color:green;'>"+response.data.message+"</span>";
