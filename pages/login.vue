@@ -13,12 +13,15 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" v-model="password" @keyup.enter="loginNow()" placeholder="Password">
+                    <input :type="passwordType" class="form-control" id="password" v-model="password" @keyup.enter="loginNow()" placeholder="Password">
                     <!-- <button class="btn btn-outline-secondary" type="button" id="togglePassword" onclick="togglePasswordVisibility()">
                         <i class="fas fa-eye" id="eyeIcon"></i>
                     </button> -->
                     <small v-html="passwordMessage"></small>
+                    <input type="checkbox" id="showPasswordCheckbox" name="showPasswordCheckbox" style="vertical-align: middle;" v-model="showPassword" @click="showPasswordClicked()">
+                    <label for="showPasswordCheckbox" style="margin-left: 5px;" @click="showPasswordClicked()">Show password</label>
                 </div>
+
                 <div class="form-group text-right">
                     <router-link to="/change-password" class="forgot-password-link">Forgot password?</router-link>
                 </div>
@@ -69,6 +72,8 @@
                 passwordMessage: '',
                 submitFormMessage: '',
                 isLoading: false,
+                showPassword: false,
+                passwordType: 'password',
             }
         },
 
@@ -116,6 +121,15 @@
         },
 
         methods: {
+            showPasswordClicked(){
+                if(this.showPassword){
+                    this.passwordType = "password";
+                }
+                else{
+                    this.passwordType = "";
+                }
+            },
+
             loginNow(){
                 // toast.success('Hello, Vue Toast!');
                 if(process.client){

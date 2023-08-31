@@ -13,9 +13,12 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password*</label>
-                    <input type="password" class="form-control" id="password" v-model="password" @keyup.enter="createAccount()" placeholder="Password">
+                    <input :type="passwordType" class="form-control" id="password" v-model="password" @keyup.enter="createAccount()" placeholder="Password">
                     <small v-html="passwordMessage"></small>
+                    <input type="checkbox" id="showPasswordCheckbox" name="showPasswordCheckbox" style="vertical-align: middle;" v-model="showPassword" @click="showPasswordClicked()">
+                    <label for="showPasswordCheckbox" style="margin-left: 5px;" @click="showPasswordClicked()">Show password</label>
                 </div>
+
                 <div class="form-group" title="Your selected question will be asked if you forget password">
                     <label for="question">Password Recovery Question*</label>
                     <select class="form-control" id="question" v-model="selectedQuestion">
@@ -109,6 +112,8 @@
                 uploadLoading: true,
                 userEmail: '',
                 token: process.client ? localStorage.getItem('token') : '',
+                showPassword: false,
+                passwordType: 'password',
             }
         },
 
@@ -155,6 +160,15 @@
         },
 
         methods: {
+
+            showPasswordClicked(){
+                if(this.showPassword){
+                    this.passwordType = "password";
+                }
+                else{
+                    this.passwordType = "";
+                }
+            },
 
             checkIfEmailExist(){
                 this.emailMessage = "";
