@@ -89,7 +89,7 @@
                             
                         </div>
                     </div>
-                    <div class="total-votes-count-in-poll-page">Total {{formatNumber(totalVotes)}}</div>
+                    <div class="total-votes-count-in-poll-page">{{formatNumber(totalVotes)}} votes</div>
                     <div class="custom-align">
                         
 
