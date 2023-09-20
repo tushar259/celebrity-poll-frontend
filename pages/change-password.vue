@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 log-reg-pas-container">
+                <img class="log-reg-logo-image mx-auto d-block" :src="apiUrl+'/logo/favicon2.png'" alt="logo">
                 <h2 class="text-center mb-4">Change password</h2>
                 
                 <div v-if="emailFound == 'second phase'">
@@ -23,14 +24,19 @@
                 <div v-else-if="emailFound == 'third phase'">
                     <div class="form-group">
                         <label for="password">New password (at least 5 or at most 20 characters)</label>
-                        <input type="password" class="form-control" v-model="changePassword" @keyup.enter="recoverPasswordFinalStep()" placeholder="Password">
+                        <input :type="passwordType" class="form-control" v-model="changePassword" @keyup.enter="recoverPasswordFinalStep()" placeholder="Password">
                         <small v-html="changePasswordMessage"></small>
                     </div>
                     <div class="form-group">
                         <label for="password">Confirm password</label>
-                        <input type="password" class="form-control" v-model="confirmPassword" @keyup.enter="recoverPasswordFinalStep()" placeholder="Password">
+                        <input :type="passwordType" class="form-control" v-model="confirmPassword" @keyup.enter="recoverPasswordFinalStep()" placeholder="Password">
                         <small v-html="confirmPasswordMessage"></small>
+                        <div class="show-password-div">
+                            <input class="form-check-input" type="checkbox" id="showPasswordCheckbox" name="showPasswordCheckbox" style="vertical-align: middle;" v-model="showPassword" @click="showPasswordClicked()">
+                            <label for="showPasswordCheckbox" style="margin-left: 5px;" @click="showPasswordClicked()">Show password</label>
+                        </div>
                     </div>
+                    
                     <button class="btn btn-primary btn-block" @click="recoverPasswordFinalStep()" :disabled="isLoading">
                         <span v-if="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                         {{ isLoading ? 'Loading...' : 'Change password' }}
@@ -73,6 +79,7 @@
 
         data() {
             return {
+                apiUrl: null,
                 userIdFromDatabase: '',
                 email: '',
                 emailMessage: '',
@@ -88,6 +95,8 @@
                 confirmPasswordMessage: '',
                 token: process.client ? localStorage.getItem('token') : '',
                 userEmail: '',
+                showPassword: false,
+                passwordType: 'password',
             }
         },
 
@@ -96,20 +105,20 @@
             const apiUrlForLoginNReg = this.$axios.defaults.baseURL;
 
             this.$nuxt.$options.head = {
-                title: 'Fans - Change password',
+                title: 'PollDiary - Change password',
                 meta: [
                     
                     {name: 'description', content: "Change password if you forgot."},
 
                     // {name: 'description', content: this.afterPollDescription },
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - Change password' },
+                    { hid: 'og:title', property: 'og:title', content: 'PollDiary - Change password' },
                     { hid: 'og:description', property: 'og:description', content: "Change password if you forgot." },
                     { hid: 'og:image', property: 'og:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/change-password' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - Change password' },
+                    { name: 'twitter:title', content: 'PollDiary - Change password' },
                     // { name: 'twitter:description', content: "Change password to continue with us." },
                     { name: 'twitter:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { name: 'twitter:card', content: 'summary_large_image' },
@@ -120,7 +129,7 @@
             };
 
             if (process.client){
-                document.title = 'Fans - Change password';
+                document.title = 'PollDiary - Change password';
                 window.scrollTo(0, 0);
             }
 
@@ -130,10 +139,20 @@
         },
 
         created(){
+            this.apiUrl = this.$axios.defaults.baseURL;
             this.checkIfUserLoggedin();
         },
 
         methods: {
+            showPasswordClicked(){
+                if(this.showPassword){
+                    this.passwordType = "password";
+                }
+                else{
+                    this.passwordType = "";
+                }
+            },
+
             recoverPassword(){
                 this.isLoading = true;
                 this.emailMessage = "";

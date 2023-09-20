@@ -24,20 +24,20 @@
             const apiUrlForLoginNReg = this.$axios.defaults.baseURL;
 
             this.$nuxt.$options.head = {
-                title: 'Fans - Home',
+                title: 'PollDiary - Home',
                 meta: [
                     
                     // {name: 'description', content: "Change password if you forgot."},
 
                     // {name: 'description', content: this.afterPollDescription },
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - Home' },
+                    { hid: 'og:title', property: 'og:title', content: 'PollDiary - Home' },
                     // { hid: 'og:description', property: 'og:description', content: "Home if you forgot." },
                     { hid: 'og:image', property: 'og:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - Home' },
+                    { name: 'twitter:title', content: 'PollDiary - Home' },
                     // { name: 'twitter:description', content: "Home to continue with us." },
                     { name: 'twitter:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { name: 'twitter:card', content: 'summary_large_image' },
@@ -48,7 +48,7 @@
             };
 
             if (process.client){
-                document.title = 'Fans - Home';
+                document.title = 'PollDiary - Home';
                 window.scrollTo(0, 0);
             }
 

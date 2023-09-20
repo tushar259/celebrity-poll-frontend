@@ -15,8 +15,10 @@
                     <label for="password">Password*</label>
                     <input :type="passwordType" class="form-control" id="password" v-model="password" @keyup.enter="createAccount()" placeholder="Password">
                     <small v-html="passwordMessage"></small>
-                    <input type="checkbox" id="showPasswordCheckbox" name="showPasswordCheckbox" style="vertical-align: middle;" v-model="showPassword" @click="showPasswordClicked()">
-                    <label for="showPasswordCheckbox" style="margin-left: 5px;" @click="showPasswordClicked()">Show password</label>
+                    <div class="show-password-div">
+                        <input class="form-check-input" type="checkbox" id="showPasswordCheckbox" name="showPasswordCheckbox" style="vertical-align: middle;" v-model="showPassword" @click="showPasswordClicked()">
+                        <label for="showPasswordCheckbox" style="margin-left: 5px;" @click="showPasswordClicked()">Show password</label>
+                    </div>
                 </div>
 
                 <div class="form-group" title="Your selected question will be asked if you forget password">
@@ -121,20 +123,20 @@
             const apiUrlForLoginNReg = this.$axios.defaults.baseURL;
 
             this.$nuxt.$options.head = {
-                title: 'Fans - Create Account',
+                title: 'PollDiary - Create Account',
                 meta: [
                     
                     {name: 'description', content: "Create account to continue with us."},
 
                     // {name: 'description', content: this.afterPollDescription },
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - Create Account' },
+                    { hid: 'og:title', property: 'og:title', content: 'PollDiary - Create Account' },
                     { hid: 'og:description', property: 'og:description', content: "Create account to continue with us." },
                     { hid: 'og:image', property: 'og:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/create-account' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - Create Account' },
+                    { name: 'twitter:title', content: 'PollDiary - Create Account' },
                     { name: 'twitter:description', content: "Create account to continue with us." },
                     { name: 'twitter:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { name: 'twitter:card', content: 'summary_large_image' },
@@ -145,7 +147,7 @@
             };
 
             if (process.client){
-                document.title = 'Fans - Create Account';
+                document.title = 'PollDiary - Create Account';
                 window.scrollTo(0, 0);
             }
 

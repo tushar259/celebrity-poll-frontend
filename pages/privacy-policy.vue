@@ -2,7 +2,7 @@
     <div class="terms-n-conditions-page">
         <h4><strong>Privacy Policy</strong></h4>
 
-        <p>This Privacy Policy describes how [Your Website Name] collects, uses, and protects the personal information you provide on our website. We are committed to ensuring the privacy and security of your personal information and maintaining the confidentiality of the data you share with us. By using our website, you consent to the terms of this Privacy Policy.
+        <p>This Privacy Policy describes how PollDiary collects, uses, and protects the personal information you provide on our website. We are committed to ensuring the privacy and security of your personal information and maintaining the confidentiality of the data you share with us. By using our website, you consent to the terms of this Privacy Policy.
             </p>
         <h5><strong>1. Collection of Personal Information</strong></h5>
 
@@ -78,20 +78,20 @@
             const apiUrlForLoginNReg = this.$axios.defaults.baseURL;
 
             this.$nuxt.$options.head = {
-                title: 'Fans - Privacy policy',
+                title: 'PollDiary - Privacy policy',
                 meta: [
                     
                     // {name: 'description', content: "Change password if you forgot."},
 
                     // {name: 'description', content: this.afterPollDescription },
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - Privacy policy' },
+                    { hid: 'og:title', property: 'og:title', content: 'PollDiary - Privacy policy' },
                     // { hid: 'og:description', property: 'og:description', content: "Privacy policy if you forgot." },
                     { hid: 'og:image', property: 'og:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/privacy-policy' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - Privacy policy' },
+                    { name: 'twitter:title', content: 'PollDiary - Privacy policy' },
                     // { name: 'twitter:description', content: "Privacy policy to continue with us." },
                     { name: 'twitter:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { name: 'twitter:card', content: 'summary_large_image' },
@@ -102,7 +102,7 @@
             };
 
             if (process.client){
-                document.title = 'Fans - Privacy policy';
+                document.title = 'PollDiary - Privacy policy';
                 window.scrollTo(0, 0);
             }
 

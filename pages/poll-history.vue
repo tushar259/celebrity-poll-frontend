@@ -19,7 +19,7 @@
                                 <th class="col-2"><input type="number" class="form-control" v-model="wonPoll" @input="handleGivenInput('wonPoll')" placeholder="Greater than >"></th>
                             </tr>
                             <tr>
-                                <th>Rank</th>
+                                <th>Rows</th>
                                 <th>Star name</th>
                                 <th>Total votes received</th>
                                 <th>Average votes</th>
@@ -103,20 +103,20 @@
             // const fullUrl = `${protocol}://${host}${window.location.pathname}`;
 
             this.$nuxt.$options.head = {
-                title: 'Fans - Poll History',
+                title: 'PollDiary - Poll History',
                 meta: [
                     
                     {name: 'description', content: this.pageDescriptionForMeta},
 
                     // {name: 'description', content: this.afterPollDescription },
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - Poll History' },
+                    { hid: 'og:title', property: 'og:title', content: 'PollDiary - Poll History' },
                     { hid: 'og:description', property: 'og:description', content: this.pageDescriptionForMeta },
                     { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/logo/favicon2.png' },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/poll-history' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - Poll History' },
+                    { name: 'twitter:title', content: 'PollDiary - Poll History' },
                     { name: 'twitter:description', content: this.pageDescriptionForMeta },
                     { name: 'twitter:image', content: this.apiUrl+'/logo/favicon2.png' },
                     { name: 'twitter:card', content: 'summary_large_image' },
@@ -127,7 +127,7 @@
             };
 
             if (process.client){
-                document.title = 'Fans - Poll History';
+                document.title = 'PollDiary - Poll History';
                 window.scrollTo(0, 0);
             }
             

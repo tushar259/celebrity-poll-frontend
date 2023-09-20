@@ -122,7 +122,7 @@
     export default {
 
         head:{
-            title: 'Fans - Behind The Stars',
+            title: 'PollDiary - Behind The Stars',
             meta:[
                 
                 { charset: 'UTF-8' },
@@ -212,13 +212,13 @@
                 meta: [
                     {name: 'description', content: this.pageDescriptionForMeta},
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - Behind The Stars' },
+                    { hid: 'og:title', property: 'og:title', content: 'PollDiary - Behind The Stars' },
                     { hid: 'og:description', property: 'og:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
                     { hid: 'og:image', property: 'og:image', content: this.apiUrl+'/logo/favicon2.png' },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/polls' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - Behind The Stars' },
+                    { name: 'twitter:title', content: 'PollDiary - Behind The Stars' },
                     { name: 'twitter:description', content: 'Welcome to [Your Website Name]! We are dedicated to providing an engaging platform for star polls and discussions.' },
                     { name: 'twitter:image', content: this.apiUrl+'/logo/favicon2.png' },
                     { name: 'twitter:card', content: 'summary_large_image' },

@@ -4,7 +4,7 @@
             <h2>Report a Problem</h2>
             
             <div class="form-group">
-                <label for="name">Your Name</label>
+                <label for="name">Email / Name / Phone</label>
                 <input class="form-control" id="name" v-model="name" @keyup.enter="submitProblem()" required>
             </div>
             <div class="form-group">
@@ -51,20 +51,20 @@
             const apiUrlForLoginNReg = this.$axios.defaults.baseURL;
 
             this.$nuxt.$options.head = {
-                title: 'Fans - Report a problem',
+                title: 'PollDiary - Report a problem',
                 meta: [
                     
                     // {name: 'description', content: "Change password if you forgot."},
 
                     // {name: 'description', content: this.afterPollDescription },
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - Report a problem' },
+                    { hid: 'og:title', property: 'og:title', content: 'PollDiary - Report a problem' },
                     // { hid: 'og:description', property: 'og:description', content: "Report a problem if you forgot." },
                     { hid: 'og:image', property: 'og:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/report-problem' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - Report a problem' },
+                    { name: 'twitter:title', content: 'PollDiary - Report a problem' },
                     // { name: 'twitter:description', content: "Report a problem to continue with us." },
                     { name: 'twitter:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { name: 'twitter:card', content: 'summary_large_image' },
@@ -75,7 +75,7 @@
             };
 
             if (process.client){
-                document.title = 'Fans - Report a problem';
+                document.title = 'PollDiary - Report a problem';
                 window.scrollTo(0, 0);
             }
 

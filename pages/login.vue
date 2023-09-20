@@ -18,10 +18,17 @@
                         <i class="fas fa-eye" id="eyeIcon"></i>
                     </button> -->
                     <small v-html="passwordMessage"></small>
-                    <input type="checkbox" id="showPasswordCheckbox" name="showPasswordCheckbox" style="vertical-align: middle;" v-model="showPassword" @click="showPasswordClicked()">
-                    <label for="showPasswordCheckbox" style="margin-left: 5px;" @click="showPasswordClicked()">Show password</label>
+                    <div class="show-password-div">
+                        <input class="form-check-input" type="checkbox" id="showPasswordCheckbox" name="showPasswordCheckbox" style="vertical-align: middle;" v-model="showPassword" @click="showPasswordClicked()">
+                        <label for="showPasswordCheckbox" style="margin-left: 5px;" @click="showPasswordClicked()">Show password</label>
+                    </div>
                 </div>
-
+                <!-- <div class="form-check"> -->
+  <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> -->
+  <!-- <label class="form-check-label" for="flexCheckChecked">
+    Checked checkbox
+  </label> -->
+<!-- </div> -->
                 <div class="form-group text-right">
                     <router-link to="/change-password" class="forgot-password-link">Forgot password?</router-link>
                 </div>
@@ -81,20 +88,20 @@
             const apiUrlForLoginNReg = this.$axios.defaults.baseURL;
 
             this.$nuxt.$options.head = {
-                title: 'Fans - Login',
+                title: 'PollDiary - Login',
                 meta: [
                     
                     {name: 'description', content: "Login to continue with us."},
 
                     // {name: 'description', content: this.afterPollDescription },
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - Login' },
+                    { hid: 'og:title', property: 'og:title', content: 'PollDiary - Login' },
                     { hid: 'og:description', property: 'og:description', content: "Login to continue with us." },
                     { hid: 'og:image', property: 'og:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/login' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - Login' },
+                    { name: 'twitter:title', content: 'PollDiary - Login' },
                     { name: 'twitter:description', content: "Login to continue with us." },
                     { name: 'twitter:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { name: 'twitter:card', content: 'summary_large_image' },
@@ -105,7 +112,7 @@
             };
 
             if (process.client){
-                document.title = 'Fans - Login';
+                document.title = 'PollDiary - Login';
                 window.scrollTo(0, 0);
             }
 

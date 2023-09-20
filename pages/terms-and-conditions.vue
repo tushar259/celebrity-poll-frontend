@@ -2,37 +2,37 @@
     <div class="terms-n-conditions-page">
         <h2><strong>Terms and Conditions</strong></h2>
 
-<p>Welcome to Galaxy of Fandom!</p>
+<p>Welcome to PollDiary!</p>
 
-<p>These terms and conditions outline the rules and regulations for the use of Galaxy of Fandom's Website, located at (website link).</p>
+<p>These terms and conditions outline the rules and regulations for the use of PollDiary's Website, located at https://www.polldiary.com.</p>
 
-<p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Galaxy of Fandom if you do not agree to take all of the terms and conditions stated on this page.</p>
+<p>By accessing this website we assume you accept these terms and conditions. Do not continue to use PollDiary if you do not agree to take all of the terms and conditions stated on this page.</p>
 
 <p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company's terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client's needs in respect of provision of the Company's stated services, in accordance with and subject to, prevailing law of bd. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
 
 <h3><strong>Cookies</strong></h3>
 
-<p>We employ the use of cookies. By accessing Galaxy of Fandom, you agreed to use cookies in agreement with the Galaxy of Fandom's Privacy Policy. </p>
+<p>We employ the use of cookies. By accessing PollDiary, you agreed to use cookies in agreement with the PollDiary's Privacy Policy. </p>
 
 <p>Most interactive websites use cookies to let us retrieve the user's details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>
 
 <h3><strong>License</strong></h3>
 
-<p>Unless otherwise stated, Galaxy of Fandom and/or its licensors own the intellectual property rights for all material on Galaxy of Fandom. All intellectual property rights are reserved. You may access this from Galaxy of Fandom for your own personal use subjected to restrictions set in these terms and conditions.</p>
+<p>Unless otherwise stated, PollDiary and/or its licensors own the intellectual property rights for all material on PollDiary. All intellectual property rights are reserved. You may access this from PollDiary for your own personal use subjected to restrictions set in these terms and conditions.</p>
 
 <p>You must not:</p>
 <ul>
-    <li>Republish material from Galaxy of Fandom</li>
-    <li>Sell, rent or sub-license material from Galaxy of Fandom</li>
-    <li>Reproduce, duplicate or copy material from Galaxy of Fandom</li>
-    <li>Redistribute content from Galaxy of Fandom</li>
+    <li>Republish material from PollDiary</li>
+    <li>Sell, rent or sub-license material from PollDiary</li>
+    <li>Reproduce, duplicate or copy material from PollDiary</li>
+    <li>Redistribute content from PollDiary</li>
 </ul>
 
 <p>This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the <a href="https://www.termsandconditionsgenerator.com/">Free Terms and Conditions Generator</a>.</p>
 
-<p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. Galaxy of Fandom does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Galaxy of Fandom,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, Galaxy of Fandom shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
+<p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. PollDiary does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of PollDiary,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, PollDiary shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
 
-<p>Galaxy of Fandom reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>
+<p>PollDiary reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>
 
 <p>You warrant and represent that:</p>
 
@@ -43,7 +43,7 @@
     <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>
 </ul>
 
-<p>You hereby grant Galaxy of Fandom a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
+<p>You hereby grant PollDiary a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
 
 <h3><strong>Hyperlinking to our Content</strong></h3>
 
@@ -71,11 +71,11 @@
     <li>educational institutions and trade associations.</li>
 </ul>
 
-<p>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of Galaxy of Fandom; and (d) the link is in the context of general resource information.</p>
+<p>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of PollDiary; and (d) the link is in the context of general resource information.</p>
 
 <p>These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party's site.</p>
 
-<p>If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to Galaxy of Fandom. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>
+<p>If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to PollDiary. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>
 
 <p>Approved organizations may hyperlink to our Website as follows:</p>
 
@@ -85,7 +85,7 @@
     <li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party's site.</li>
 </ul>
 
-<p>No use of Galaxy of Fandom's logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
+<p>No use of PollDiary's logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
 
 <h3><strong>iFrames</strong></h3>
 
@@ -158,20 +158,20 @@
             const apiUrlForLoginNReg = this.$axios.defaults.baseURL;
 
             this.$nuxt.$options.head = {
-                title: 'Fans - Terms and conditions',
+                title: 'PollDiary - Terms and conditions',
                 meta: [
                     
                     // {name: 'description', content: "Change password if you forgot."},
 
                     // {name: 'description', content: this.afterPollDescription },
 
-                    { hid: 'og:title', property: 'og:title', content: 'Fans - Terms and conditions' },
+                    { hid: 'og:title', property: 'og:title', content: 'PollDiary - Terms and conditions' },
                     // { hid: 'og:description', property: 'og:description', content: "Terms and conditions if you forgot." },
                     { hid: 'og:image', property: 'og:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { hid: 'og:url', property: 'og:url', content: 'http://127.0.0.1:3000/terms-and-conditions' },
                     { hid: 'og:type', property: 'og:type', content: 'website' },
 
-                    { name: 'twitter:title', content: 'Fans - Terms and conditions' },
+                    { name: 'twitter:title', content: 'PollDiary - Terms and conditions' },
                     // { name: 'twitter:description', content: "Terms and conditions to continue with us." },
                     { name: 'twitter:image', content: apiUrlForLoginNReg+'/logo/favicon2.png' },
                     { name: 'twitter:card', content: 'summary_large_image' },
@@ -182,7 +182,7 @@
             };
 
             if (process.client){
-                document.title = 'Fans - Terms and conditions';
+                document.title = 'PollDiary - Terms and conditions';
                 window.scrollTo(0, 0);
             }
 
