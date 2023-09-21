@@ -628,7 +628,7 @@ input[type='text'] {
 
 .nav-link.active {
     /* border-bottom: 2px solid rgb(175, 22, 22); */
-    color: rgb(175, 22, 22) !important;
+    color: rgb(255, 0, 0) !important;
 }
 
 .nav-item {
